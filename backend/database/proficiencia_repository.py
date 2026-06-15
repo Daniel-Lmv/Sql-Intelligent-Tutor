@@ -1,5 +1,4 @@
-from connection import get_connection
-
+from backend.database.connection import get_connection
 
 def obter_proficiencia(
     usuario_id,

@@ -1,4 +1,11 @@
-from connection import get_connection
+from backend.database.connection import get_connection
+
+# Criar banco de dados
+# import sqlite3
+# conn = sqlite3.connect("its.db")
+# cursor = conn.cursor()
+# print("Banco criado com sucesso!")
+# conn.close()
 
 conn = get_connection()
 cursor = conn.cursor()

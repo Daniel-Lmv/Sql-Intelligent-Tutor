@@ -1,4 +1,4 @@
-from connection import get_connection
+from backend.database.connection import get_connection
 
 
 def criar_usuario(nome, email):

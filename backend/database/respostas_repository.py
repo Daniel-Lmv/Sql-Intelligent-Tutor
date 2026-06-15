@@ -1,4 +1,4 @@
-from connection import get_connection
+from backend.database.connection import get_connection
 
 
 def registrar_resposta(
