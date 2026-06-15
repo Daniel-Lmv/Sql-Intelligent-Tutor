@@ -1,14 +1,14 @@
-from backend.database.connection import get_connection
+import sqlite3
+from pathlib import Path
 
-# Criar banco de dados
-# import sqlite3
-# conn = sqlite3.connect("its.db")
-# cursor = conn.cursor()
-# print("Banco criado com sucesso!")
-# conn.close()
+DB_PATH = Path(__file__).resolve().parent / "its.db"
 
-conn = get_connection()
+conn = sqlite3.connect(DB_PATH)
 cursor = conn.cursor()
+
+# ==========================
+# TABELA USUARIOS
+# ==========================
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS usuarios (
@@ -18,6 +18,10 @@ CREATE TABLE IF NOT EXISTS usuarios (
 )
 """)
 
+# ==========================
+# TABELA CONCEITOS
+# ==========================
+
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS conceitos (
     id INTEGER PRIMARY KEY,
@@ -26,22 +30,35 @@ CREATE TABLE IF NOT EXISTS conceitos (
 )
 """)
 
+# ==========================
+# TABELA QUESTOES
+# ==========================
+
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS questoes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+
     conceito_id INTEGER,
-    enunciado TEXT,
-    sql_gabarito TEXT,
+
+    enunciado TEXT NOT NULL,
+
+    sql_gabarito TEXT NOT NULL,
 
     FOREIGN KEY(conceito_id)
         REFERENCES conceitos(id)
 )
 """)
 
+# ==========================
+# TABELA PROFICIENCIA
+# ==========================
+
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS proficiencia (
     usuario_id INTEGER,
+
     conceito_id INTEGER,
+
     nivel REAL DEFAULT 0,
 
     PRIMARY KEY(usuario_id, conceito_id),
@@ -53,6 +70,10 @@ CREATE TABLE IF NOT EXISTS proficiencia (
         REFERENCES conceitos(id)
 )
 """)
+
+# ==========================
+# TABELA RESPOSTAS
+# ==========================
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS respostas (
@@ -76,6 +97,12 @@ CREATE TABLE IF NOT EXISTS respostas (
 )
 """)
 
+# ==========================
+# POPULAR CONCEITOS
+# ==========================
+
+cursor.execute("DELETE FROM conceitos")
+
 conceitos = [
     (1, "SELECT", "Selecionar colunas"),
     (2, "WHERE", "Filtrar registros"),
@@ -88,11 +115,11 @@ conceitos = [
 ]
 
 cursor.executemany("""
-INSERT OR IGNORE INTO conceitos
+INSERT INTO conceitos
 VALUES (?, ?, ?)
 """, conceitos)
 
 conn.commit()
 conn.close()
 
-print("Banco inicializado.")
+print("its.db criado e populado com sucesso!")

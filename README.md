@@ -148,7 +148,7 @@ python database/init_db.py
 ### Criar o Banco de Exercícios
 
 ```bash
-python database/create_exercises_db.py
+python database/init_exercises_db.py
 ```
 
 ---
