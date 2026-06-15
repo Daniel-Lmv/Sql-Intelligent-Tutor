@@ -6,57 +6,53 @@ DB_PATH = Path(__file__).resolve().parent / "its.db"
 conn = sqlite3.connect(DB_PATH)
 cursor = conn.cursor()
 
-# ==========================
-# TABELA USUARIOS
-# ==========================
-
+# USUÁRIOS
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS usuarios (
+CREATE TABLE usuarios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
     email TEXT UNIQUE
 )
 """)
 
-# ==========================
-# TABELA CONCEITOS
-# ==========================
 
+# CONCEITOS
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS conceitos (
+CREATE TABLE conceitos (
     id INTEGER PRIMARY KEY,
     nome TEXT NOT NULL,
     descricao TEXT
 )
 """)
 
-# ==========================
-# TABELA QUESTOES
-# ==========================
-
+# QUESTÕES
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS questoes (
+CREATE TABLE questoes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
 
-    conceito_id INTEGER,
+    conceito_id INTEGER NOT NULL,
 
-    enunciado TEXT NOT NULL,
+    enunciado TEXT NOT NULL UNIQUE,
 
-    sql_gabarito TEXT NOT NULL,
+    alternativa_a TEXT NOT NULL,
+    alternativa_b TEXT NOT NULL,
+    alternativa_c TEXT NOT NULL,
+    alternativa_d TEXT NOT NULL,
 
-    FOREIGN KEY(conceito_id)
+    resposta_correta TEXT NOT NULL,
+
+    dificuldade INTEGER DEFAULT 1,
+
+    FOREIGN KEY (conceito_id)
         REFERENCES conceitos(id)
 )
 """)
 
-# ==========================
-# TABELA PROFICIENCIA
-# ==========================
 
+# PROFICIÊNCIA
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS proficiencia (
+CREATE TABLE proficiencia (
     usuario_id INTEGER,
-
     conceito_id INTEGER,
 
     nivel REAL DEFAULT 0,
@@ -71,21 +67,18 @@ CREATE TABLE IF NOT EXISTS proficiencia (
 )
 """)
 
-# ==========================
-# TABELA RESPOSTAS
-# ==========================
-
+# RESPOSTAS
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS respostas (
+CREATE TABLE respostas (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
 
-    usuario_id INTEGER,
+    usuario_id INTEGER NOT NULL,
 
-    questao_id INTEGER,
+    questao_id INTEGER NOT NULL,
 
-    resposta_sql TEXT,
+    resposta_aluno TEXT NOT NULL,
 
-    correta INTEGER,
+    acertou INTEGER NOT NULL,
 
     data_resposta DATETIME DEFAULT CURRENT_TIMESTAMP,
 
@@ -97,21 +90,48 @@ CREATE TABLE IF NOT EXISTS respostas (
 )
 """)
 
-# ==========================
 # POPULAR CONCEITOS
-# ==========================
-
-cursor.execute("DELETE FROM conceitos")
-
 conceitos = [
-    (1, "SELECT", "Selecionar colunas"),
-    (2, "WHERE", "Filtrar registros"),
-    (3, "ORDER BY", "Ordenar resultados"),
-    (4, "AGREGACOES", "COUNT SUM AVG"),
-    (5, "GROUP BY", "Agrupar registros"),
-    (6, "HAVING", "Filtrar grupos"),
-    (7, "JOINS", "Combinar tabelas"),
-    (8, "SUBQUERIES", "Consultas aninhadas")
+    (
+        1,
+        "SELECT",
+        "Seleção de colunas e registros"
+    ),
+    (
+        2,
+        "WHERE",
+        "Filtragem de registros"
+    ),
+    (
+        3,
+        "ORDER BY",
+        "Ordenação de resultados"
+    ),
+    (
+        4,
+        "AGREGACOES",
+        "COUNT, SUM, AVG, MIN e MAX"
+    ),
+    (
+        5,
+        "GROUP BY",
+        "Agrupamento de registros"
+    ),
+    (
+        6,
+        "HAVING",
+        "Filtragem de grupos"
+    ),
+    (
+        7,
+        "JOINS",
+        "Junção entre tabelas"
+    ),
+    (
+        8,
+        "SUBQUERIES",
+        "Consultas aninhadas"
+    )
 ]
 
 cursor.executemany("""
@@ -119,7 +139,17 @@ INSERT INTO conceitos
 VALUES (?, ?, ?)
 """, conceitos)
 
+# USUÁRIO DE TESTE
+cursor.execute("""
+INSERT INTO usuarios
+(nome, email)
+VALUES (?, ?)
+""", (
+    "Aluno Teste",
+    "teste@gmail.com"
+))
+
 conn.commit()
 conn.close()
 
-print("its.db criado e populado com sucesso!")
+print("Banco its.db criado com sucesso!")

@@ -1,0 +1,202 @@
+[
+  {
+    "conceito_id": 1,
+    "enunciado": "Para selecionar todas as informações de uma tabela chamada 'livros', qual comando SQL deve ser utilizado?",
+    "alternativa_a": "SELECT ALL FROM livros;",
+    "alternativa_b": "SELECT * FROM livros;",
+    "alternativa_c": "SELECT tabela FROM livros;",
+    "alternativa_d": "GET * FROM livros;",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Se uma tabela 'usuarios' possui as colunas 'id', 'nome', 'email' e 'senha', qual comando projeta apenas o identificador e o correio eletrônico dos usuários?",
+    "alternativa_a": "SELECT id, email FROM usuarios;",
+    "alternativa_b": "SELECT (id; email) FROM usuarios;",
+    "alternativa_c": "SELECT id AND email FROM usuarios;",
+    "alternativa_d": "SELECT usuarios.id, usuarios.senha FROM usuarios;",
+    "resposta_correta": "A",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Ao utilizar o comando 'SELECT nome AS 'Nome do Cliente' FROM clientes;', qual é a função da palavra-chave AS?",
+    "alternativa_a": "Filtrar os resultados para exibir apenas clientes com nome preenchido.",
+    "alternativa_b": "Modificar permanentemente o nome da coluna no banco de dados.",
+    "alternativa_c": "Definir um apelido (alias) para a coluna na exibição do resultado da consulta.",
+    "alternativa_d": "Ordenar o resultado pelo campo nome de forma ascendente.",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Qual das seguintes alternativas apresenta uma sintaxe válida para renomear a coluna 'preco' para 'valor_unitario' no resultado de uma consulta na tabela 'produtos'?",
+    "alternativa_a": "SELECT preco RENAME valor_unitario FROM produtos;",
+    "alternativa_b": "SELECT preco TO valor_unitario FROM produtos;",
+    "alternativa_c": "SELECT preco valor_unitario FROM produtos;",
+    "alternativa_d": "SELECT valor_unitario FROM preco IN produtos;",
+    "resposta_correta": "C",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "A tabela 'pedidos' possui uma coluna 'status' com os valores: 'Pendente', 'Aprovado', 'Pendente', 'Cancelado', 'Aprovado'. Quantas linhas retornará a consulta 'SELECT DISTINCT status FROM pedidos;'?",
+    "alternativa_a": "5 linhas.",
+    "alternativa_b": "2 linhas.",
+    "alternativa_c": "3 linhas.",
+    "alternativa_d": "0 linhas.",
+    "resposta_correta": "C",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Em uma tabela de 'funcionarios', com a coluna 'salario_mensal', deseja-se projetar o salário anual estimado de cada funcionário (multiplicado por 12). Qual comando realiza essa operação aritmética corretamente?",
+    "alternativa_a": "SELECT salario_mensal * 12 FROM funcionarios;",
+    "alternativa_b": "SELECT salario_mensal X 12 FROM funcionarios;",
+    "alternativa_c": "SELECT MULTIPLY(salario_mensal, 12) FROM funcionarios;",
+    "alternativa_d": "SELECT salario_mensal ^ 12 FROM funcionarios;",
+    "resposta_correta": "A",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Na sintaxe padrão do SQL, qual é a ordem correta das cláusulas obrigatórias para realizar uma projeção simples de dados?",
+    "alternativa_a": "FROM <tabela> SELECT <colunas>;",
+    "alternativa_b": "SELECT <colunas> FROM <tabela>;",
+    "alternativa_c": "GET <colunas> IN <tabela>;",
+    "alternativa_d": "SELECT <colunas> IN <tabela>;",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Qual é o comportamento do modificador DISTINCT quando aplicado a múltiplas colunas, como em: 'SELECT DISTINCT cidade, estado FROM clientes;'?",
+    "alternativa_a": "Retorna apenas cidades distintas, ignorando a coluna estado.",
+    "alternativa_b": "Retorna apenas estados distintos, ignorando a coluna cidade.",
+    "alternativa_c": "Retorna combinações únicas e exclusivas dos valores de 'cidade' e 'estado' em conjunto.",
+    "alternativa_d": "Gera um erro de sintaxe, pois o DISTINCT só pode ser aplicado a uma única coluna.",
+    "resposta_correta": "C",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Considerando uma tabela 'projetos' com as colunas 'orcamento' e 'gastos', qual comando calcula o saldo restante do orçamento de cada projeto?",
+    "alternativa_a": "SELECT orcamento MINUS gastos FROM projetos;",
+    "alternativa_b": "SELECT orcamento - gastos FROM projetos;",
+    "alternativa_c": "SELECT SUBTER(orcamento, gastos) FROM projetos;",
+    "alternativa_d": "SELECT orcamento / gastos FROM projetos;",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Se executarmos o comando 'SELECT 1 + 1;' em um Sistema Gerenciador de Banco de Dados (SGBD) padrão, o que acontecerá?",
+    "alternativa_a": "Ocorrerá um erro, pois falta a cláusula FROM especificando uma tabela.",
+    "alternativa_b": "O SGBD retornará uma linha com o valor resultado '2'.",
+    "alternativa_c": "O SGBD criará uma tabela temporária chamada '1 + 1'.",
+    "alternativa_d": "O comando entrará em loop por falta de parâmetros de parada.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Deseja-se exibir o nome de uma coluna calculada utilizando espaços no apelido, como 'Salário Líquido'. Como esse alias deve ser delimitado na consulta SQL?",
+    "alternativa_a": "SELECT salario - descontos AS Salário Líquido FROM folha;",
+    "alternativa_b": "SELECT salario - descontos AS 'Salário Líquido' FROM folha;",
+    "alternativa_c": "SELECT salario - descontos AS (Salário Líquido) FROM folha;",
+    "alternativa_d": "SELECT salario - descontos AS [Salário Líquido] FROM folha;",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Qual das seguintes consultas apresenta um erro de sintaxe estrutural na projeção de colunas?",
+    "alternativa_a": "SELECT nome, sobrenome FROM alunos;",
+    "alternativa_b": "SELECT nome, FROM alunos;",
+    "alternativa_c": "SELECT * FROM alunos;",
+    "alternativa_d": "SELECT nome FROM alunos;",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Onde deve ser posicionada a palavra-chave DISTINCT em uma instrução SELECT para remover registros duplicados?",
+    "alternativa_a": "No final da instrução, logo após o nome da tabela.",
+    "alternativa_b": "Imediatamente antes da palavra-chave FROM.",
+    "alternativa_c": "Imediatamente após a palavra-chave SELECT e antes de qualquer coluna.",
+    "alternativa_d": "Entre o nome das colunas caso haja mais de uma selecionada.",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Na tabela 'estoque', temos as colunas 'quantidade' e 'preco_custo'. Qual consulta calcula o valor total investido em estoque para cada item?",
+    "alternativa_a": "SELECT quantidade * preco_custo FROM estoque;",
+    "alternativa_b": "SELECT quantidade + preco_custo FROM estoque;",
+    "alternativa_c": "SELECT quantidade SUM preco_custo FROM estoque;",
+    "alternativa_d": "SELECT quantidade total preco_custo FROM estoque;",
+    "resposta_correta": "A",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Caso você queira selecionar os dados de duas colunas específicas ('modelo' e 'ano') de uma tabela 'carros', como deve ser a separação dessas colunas no comando?",
+    "alternativa_a": "Separadas por um ponto final (modelo.ano).",
+    "alternativa_b": "Separadas por uma vírgula (modelo, ano).",
+    "alternativa_c": "Separadas por um ponto e vírgula (modelo; ano).",
+    "alternativa_d": "Separadas pela palavra-chave AND (modelo AND ano).",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Em conformidade com a precedência matemática padrão adotada no SQL, qual será o resultado da coluna calculada na expressão: 'SELECT 10 + 5 * 2 FROM dual;'?",
+    "alternativa_a": "30",
+    "alternativa_b": "20",
+    "alternativa_c": "15",
+    "alternativa_d": "25",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Para alterar a ordem de precedência em expressões aritméticas complexas no SELECT (por exemplo, forçar uma soma antes de uma multiplicação), qual operador de agrupamento deve ser utilizado?",
+    "alternativa_a": "Colchetes [ ]",
+    "alternativa_b": "Chaves { }",
+    "alternativa_c": "Parênteses ( )",
+    "alternativa_d": "Aspas Duplas \" \"",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "O que acontece se uma tabela referenciada na cláusula FROM (ex: SELECT * FROM tabela_fantasma;) não existir no banco de dados?",
+    "alternativa_a": "A consulta retorna uma tabela vazia sem linhas.",
+    "alternativa_b": "O SGBD cria automaticamente a tabela vazia.",
+    "alternativa_c": "O SGBD retorna um erro de execução informando que a tabela não existe.",
+    "alternativa_d": "O SGBD trava e reinicia o serviço de banco de dados.",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Se executarmos 'SELECT DISTINCT * FROM funcionarios;', qual é a ação esperada do modificador DISTINCT?",
+    "alternativa_a": "Gera um erro, pois o DISTINCT não pode ser associado ao caractere asterisco.",
+    "alternativa_b": "Elimina do resultado linhas que sejam completamente idênticas em todas as colunas.",
+    "alternativa_c": "Filtra apenas a primeira coluna da tabela, removendo suas duplicatas.",
+    "alternativa_d": "Elimina linhas duplicadas baseando-se apenas na chave primária da tabela.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 1,
+    "enunciado": "Considere a tabela 'avaliacoes' com a coluna 'nota_fração' contendo números reais. Qual operação projeta a metade da nota de cada avaliação?",
+    "alternativa_a": "SELECT nota_fração % 2 FROM avaliacoes;",
+    "alternativa_b": "SELECT nota_fração DIV 2 FROM avaliacoes;",
+    "alternativa_c": "SELECT nota_fração / 2 FROM avaliacoes;",
+    "alternativa_d": "SELECT nota_fração - 50% FROM avaliacoes;",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  }
+]

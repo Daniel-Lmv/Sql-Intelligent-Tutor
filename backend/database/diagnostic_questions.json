@@ -1,0 +1,12 @@
+[
+  {
+    "conceito_id": 1,
+    "enunciado": "Para alterar a ordem de precedência em expressões aritméticas complexas no SELECT (por exemplo, forçar uma soma antes de uma multiplicação), qual operador de agrupamento deve ser utilizado?",
+    "alternativa_a": "Colchetes [ ]",
+    "alternativa_b": "Chaves { }",
+    "alternativa_c": "Parênteses ( )",
+    "alternativa_d": "Aspas Duplas \" \"",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  }
+]
