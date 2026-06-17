@@ -198,5 +198,1599 @@
     "alternativa_d": "SELECT nota_fração - 50% FROM avaliacoes;",
     "resposta_correta": "C",
     "dificuldade": 1
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "conceito_id": 2,
+    "enunciado": "Para filtrar os registros de uma tabela 'clientes' e retornar apenas aqueles que moram na cidade de 'São Paulo', qual cláusula WHERE deve ser utilizada?",
+    "alternativa_a": "WHERE cidade = 'São Paulo';",
+    "alternativa_b": "WHERE cidade LIKE %São Paulo%;",
+    "alternativa_c": "WHERE cidade IS 'São Paulo';",
+    "alternativa_d": "WHERE cidade == 'São Paulo';",
+    "resposta_correta": "A",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Qual operador de comparação deve ser utilizado na cláusula WHERE para encontrar produtos cujo preço seja estritamente maior que 100?",
+    "alternativa_a": "WHERE preco => 100;",
+    "alternativa_b": "WHERE preco > 100;",
+    "alternativa_c": "WHERE preco GREATER THAN 100;",
+    "alternativa_d": "WHERE preco !< 100;",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Deseja-se obter todos os funcionários da tabela 'equipe' exceto aqueles que pertencem ao departamento de 'TI'. Qual condição realiza essa filtragem corretamente?",
+    "alternativa_a": "WHERE departamento != 'TI';",
+    "alternativa_b": "WHERE departamento NOT 'TI';",
+    "alternativa_c": "WHERE departamento OR NOT 'TI';",
+    "alternativa_d": "WHERE departamento IS NOT 'TI';",
+    "resposta_correta": "A",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Uma tabela 'produtos' possui a coluna 'estoque'. Qual consulta retorna os itens que estão completamente esgotados (quantidade igual a zero)?",
+    "alternativa_a": "SELECT * FROM produtos WHERE estoque IS 0;",
+    "alternativa_b": "SELECT * FROM produtos WHERE estoque = 0;",
+    "alternativa_c": "SELECT * FROM produtos WHERE estoque NULL;",
+    "alternativa_d": "SELECT * FROM produtos HAVING estoque = 0;",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Qual palavra-chave do SQL é utilizada na cláusula WHERE para verificar se um valor está dentro de um intervalo inclusivo (ex: notas entre 7 e 10)?",
+    "alternativa_a": "INSIDE",
+    "alternativa_b": "WITHIN",
+    "alternativa_c": "BETWEEN",
+    "alternativa_d": "RANGE",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Na tabela 'veiculos', deseja-se filtrar os carros fabricados nos anos de 2020, 2022 ou 2024. Qual sintaxe usando o operador IN realiza essa busca de forma otimizada?",
+    "alternativa_a": "WHERE ano IN [2020, 2022, 2024];",
+    "alternativa_b": "WHERE ano IN (2020, 2022, 2024);",
+    "alternativa_c": "WHERE ano IN '2020', '2022', '2024';",
+    "alternativa_d": "WHERE ano BETWEEN 2020 AND 2024;",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Se você precisa buscar usuários cujo nome comece com a letra 'A' na tabela 'usuarios', qual caractere curinga deve acompanhar o operador LIKE?",
+    "alternativa_a": "WHERE nome LIKE 'A_';",
+    "alternativa_b": "WHERE nome LIKE 'A*';",
+    "alternativa_c": "WHERE nome LIKE 'A%';",
+    "alternativa_d": "WHERE nome LIKE 'A?';",
+    "resposta_correta": "C",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Considere a tabela 'pedidos' com as colunas 'status' e 'valor'. Qual filtro seleciona apenas os pedidos que estão 'Concluídos' E que possuem valor superior a 500?",
+    "alternativa_a": "WHERE status = 'Concluído' OR valor > 500;",
+    "alternativa_b": "WHERE status = 'Concluído' AND valor > 500;",
+    "alternativa_c": "WHERE status = 'Concluído' , valor > 500;",
+    "alternativa_d": "WHERE status = 'Concluído' WHILE valor > 500;",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Na tabela 'contatos', a coluna 'telefone' pode não ter sido preenchida (valor ausente). Qual é a sintaxe correta para filtrar as linhas onde o telefone não foi informado?",
+    "alternativa_a": "WHERE telefone = NULL;",
+    "alternativa_b": "WHERE telefone IS NULL;",
+    "alternativa_c": "WHERE telefone IS EMPTY;",
+    "alternativa_d": "WHERE telefone = '';",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Qual comando seleciona os produtos da tabela 'itens' cujo nome possui a palavra 'Suco' em qualquer posição do texto?",
+    "alternativa_a": "WHERE nome LIKE '%Suco%';",
+    "alternativa_b": "WHERE nome LIKE 'Suco%';",
+    "alternativa_c": "WHERE nome LIKE '%Suco';",
+    "alternativa_d": "WHERE nome IN ('Suco');",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Como o SQL avalia a seguinte condição lógica: 'WHERE NOT (categoria = 'Eletro' AND ativo = 1)'? Ela retornará registros que:",
+    "alternativa_a": "Não sejam da categoria 'Eletro' e ao mesmo tempo não estejam ativos.",
+    "alternativa_b": "Sejam da categoria 'Eletro' ou estejam ativos.",
+    "alternativa_c": "Não sejam da categoria 'Eletro' OU não estejam ativos (inverterá a conjunção completa).",
+    "alternativa_d": "Sejam ativos, independentemente da categoria.",
+    "resposta_correta": "C",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Para buscar registros onde o campo 'codigo' possua exatamente 4 caracteres, começando com 'X' e terminando com 'Z' (ex: 'X12Z'), qual padrão do LIKE deve ser usado?",
+    "alternativa_a": "WHERE codigo LIKE 'X%Z';",
+    "alternativa_b": "WHERE codigo LIKE 'X__Z';",
+    "alternativa_c": "WHERE codigo LIKE 'X????Z';",
+    "alternativa_d": "WHERE codigo LIKE 'X..Z';",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Deseja-se trazer todos os alunos da tabela 'matriculas' cuja situação NÃO seja 'Trancado' e NÃO seja 'Cancelado'. Qual cláusula atende corretamente?",
+    "alternativa_a": "WHERE situacao NOT IN ('Trancado', 'Cancelado');",
+    "alternativa_b": "WHERE situacao != 'Trancado' OR situacao != 'Cancelado';",
+    "alternativa_c": "WHERE situacao NOT LIKE 'Trancado' AND 'Cancelado';",
+    "alternativa_d": "WHERE situacao IS NOT ('Trancado', 'Cancelado');",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Considere a tabela 'vendas' com os campos 'cancelada' (0 ou 1) e 'valor'. Qual o comportamento da cláusula 'WHERE cancelada = 0 OR valor > 1000 AND regiao = 'Sul'' quanto à precedência dos operadores lógicos?",
+    "alternativa_a": "O SGBD processará o OR primeiro, seguido pelo AND.",
+    "alternativa_b": "O SGBD processará o AND primeiro, significando que o registro será trazido se não for cancelado, OU se atender cumulativamente ao valor e à região.",
+    "alternativa_c": "A expressão resultará em erro, pois exige parênteses obrigatórios ao misturar AND e OR.",
+    "alternativa_d": "A leitura será feita estritamente da esquerda para a direita, ignorando prioridades de operadores.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Em um banco de dados que armazena datas no formato 'AAAA-MM-DD', qual das seguintes cláusulas filtra corretamente os registros do primeiro trimestre do ano de 2026?",
+    "alternativa_a": "WHERE data_venda BETWEEN '2026-01-01' AND '2026-03-31';",
+    "alternativa_b": "WHERE data_venda IN ('2026-01-01', '2026-03-31');",
+    "alternativa_c": "WHERE data_venda LIKE '2026-0[1-3]-%';",
+    "alternativa_d": "WHERE data_venda >= '2026-01-01' OR data_venda <= '2026-03-31';",
+    "resposta_correta": "A",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Dada a tabela 'candidatos' com a coluna 'pontuacao', o que retornará a consulta 'SELECT * FROM candidatos WHERE pontuacao > 50 OR pontuacao <= 50 OR pontuacao IS NULL;'?",
+    "alternativa_a": "Retornará apenas os registros onde a pontuação é válida e preenchida.",
+    "alternativa_b": "Retornará absolutamente todos os registros presentes na tabela.",
+    "alternativa_c": "Retornará uma tabela vazia devido à contradição dos operadores.",
+    "alternativa_d": "Gerará um erro de execução por redundância lógica.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "A tabela 'clientes' possui registros com valores nulos (NULL) na coluna 'sobrenome'. O que acontece ao executarmos a consulta 'SELECT * FROM clientes WHERE sobrenome != 'Silva';'?",
+    "alternativa_a": "O SQL incluirá os registros com sobrenome NULL, pois NULL é diferente de 'Silva'.",
+    "alternativa_b": "O SQL ignorará os registros com sobrenome NULL, pois comparações com NULL usando operadores relacionais padrão resultam em UNKNOWN (Desconhecido).",
+    "alternativa_c": "A consulta retornará um erro exigindo o tratamento de nulos através da função COALESCE.",
+    "alternativa_d": "O SQL converterá temporariamente os nulos para strings vazias para efetuar a comparação.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Se você precisa buscar strings na tabela 'documentos' que contenham literalmente o caractere de porcentagem (ex: 'Desconto de 10%'), qual recurso da cláusula WHERE deve ser utilizado junto ao LIKE?",
+    "alternativa_a": "Modificador % com aspas duplas, ex: LIKE '%%%'.",
+    "alternativa_b": "A cláusula ESCAPE para definir um caractere de escape, ex: LIKE '%10^%%' ESCAPE '^';",
+    "alternativa_c": "O operador especial LIKE CONTAINS '%';",
+    "alternativa_d": "Substituir o LIKE pelo operador de igualdade simples (=).",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Considere a tabela 'contratos' com a coluna 'valor_total'. Qual das seguintes opções de filtro exclui registros nulos E garante que apenas valores fora do intervalo de 1000 a 5000 sejam selecionados?",
+    "alternativa_a": "WHERE valor_total NOT BETWEEN 1000 AND 5000;",
+    "alternativa_b": "WHERE valor_total < 1000 OR valor_total > 5000;",
+    "alternativa_c": "WHERE valor_total != BETWEEN(1000, 5000);",
+    "alternativa_d": "WHERE valor_total < 1000 AND valor_total > 5000 AND valor_total IS NOT NULL;",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 2,
+    "enunciado": "Análise a seguinte expressão lógica aplicada em uma consulta: 'WHERE (A OR B) AND NOT (A AND B)'. Esse filtro implementa o comportamento de qual operador lógico em relação às condições A e B?",
+    "alternativa_a": "Operador NAND (E-Não)",
+    "alternativa_b": "Operador XNOR (Equivalência)",
+    "alternativa_c": "Operador XOR (OU Exclusivo - verdadeiro se apenas uma das condições for real, mas não ambas)",
+    "alternativa_d": "Operador NOR (Ou-Não)",
+    "resposta_correta": "C",
+    "dificuldade": 3
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "conceito_id": 3,
+    "enunciado": "Qual palavra-chave deve ser adicionada ao final da cláusula ORDER BY para garantir que os registros sejam ordenados do maior valor para o menor (ordem decrescente)?",
+    "alternativa_a": "DOWN",
+    "alternativa_b": "DESC",
+    "alternativa_c": "REVERSE",
+    "alternativa_d": "ASC",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Se nenhuma palavra-chave de direção (como ASC ou DESC) for especificada após a coluna na cláusula ORDER BY, qual será o comportamento padrão do SGBD?",
+    "alternativa_a": "Os dados serão ordenados de forma ascendente (A-Z, menor para o maior).",
+    "alternativa_b": "Os dados serão ordenados de forma decrescente (Z-A, maior para o menor).",
+    "alternativa_c": "A consulta retornará um erro exigindo a definição explícita.",
+    "alternativa_d": "Os dados serão exibidos em ordem aleatória.",
+    "resposta_correta": "A",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Para ordenar uma lista de clientes alfabeticamente pelo nome, qual comando SQL preenche corretamente a lacuna: 'SELECT nome, email FROM clientes ___________;'?",
+    "alternativa_a": "SORT BY nome",
+    "alternativa_b": "GROUP BY nome",
+    "alternativa_c": "ORDER BY nome",
+    "alternativa_d": "INDEX BY nome",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Em uma tabela de 'produtos' com a coluna 'preco', qual das alternativas ordena os itens do mais barato para o mais caro?",
+    "alternativa_a": "ORDER BY preco LOW;",
+    "alternativa_b": "ORDER BY preco DESC;",
+    "alternativa_c": "ORDER BY preco ASC;",
+    "alternativa_d": "ORDER BY preco CHEAP;",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Em qual posição de uma consulta SQL padrão a cláusula ORDER BY deve ser inserida?",
+    "alternativa_a": "Antes da cláusula FROM.",
+    "alternativa_b": "Imediatamente após a palavra-chave SELECT.",
+    "alternativa_c": "No final da consulta, após a cláusula WHERE (se houver).",
+    "alternativa_d": "Entre as cláusulas SELECT e FROM.",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Considere o comando: 'SELECT nome, sobrenome FROM usuarios ORDER BY sobrenome, nome;'. Como o SGBD processará essa ordenação?",
+    "alternativa_a": "Ele ordenará prioritariamente pelo sobrenome; se houver sobrenomes iguais, usará o nome como critério de desempate.",
+    "alternativa_b": "Ele ordenará apenas pelo nome, ignorando completamente o sobrenome.",
+    "alternativa_c": "Ele fundirá as duas colunas e ordenará pelo tamanho total do texto.",
+    "alternativa_d": "Ele alternará as linhas, trazendo uma ordenada por sobrenome e outra por nome.",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Qual das seguintes alternativas apresenta uma sintaxe válida para ordenar os funcionários pelo salário de forma decrescente e, em caso de empate, pelo nome de forma ascendente?",
+    "alternativa_a": "ORDER BY salario DESC, nome ASC;",
+    "alternativa_b": "ORDER BY salario, nome DESC;",
+    "alternativa_c": "ORDER BY salario DESC AND nome ASC;",
+    "alternativa_d": "ORDER BY salario DESC, ORDER BY nome ASC;",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Ao utilizar um apelido (alias) para uma coluna calculada, como em: 'SELECT preco * 0.9 AS preco_desconto FROM itens', é permitido utilizar esse apelido na cláusula ORDER BY?",
+    "alternativa_a": "Não, o ORDER BY só aceita nomes originais das colunas físicas da tabela.",
+    "alternativa_b": "Sim, é perfeitamente válido utilizar 'ORDER BY preco_desconto;', pois o ORDER BY é processado após a projeção do SELECT.",
+    "alternativa_c": "Sim, desde que o alias seja escrito entre parênteses, ex: ORDER BY (preco_desconto).",
+    "alternativa_d": "Não, o alias só pode ser referenciado se for criado dentro da cláusula WHERE.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "O que significa a instrução 'ORDER BY 2 DESC' localizada ao final de uma consulta SQL válido?",
+    "alternativa_a": "Ordena os resultados pulando as duas primeiras linhas da tabela.",
+    "alternativa_b": "Ordena os dados de forma decrescente baseando-se na segunda coluna que foi especificada na projeção do SELECT.",
+    "alternativa_c": "Multiplica o critério de ordenação por 2 em modo reverso.",
+    "alternativa_d": "Ordena os dados usando como base a coluna cujo nome físico é o número '2'.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Deseja-se selecionar os livros da tabela 'biblioteca' filtrando pelos publicados após o ano 2000, e exibindo-os do mais recente para o mais antigo. Qual comando está correto?",
+    "alternativa_a": "SELECT * FROM biblioteca WHERE ano > 2000 ORDER BY ano DESC;",
+    "alternativa_b": "SELECT * FROM biblioteca ORDER BY ano DESC WHERE ano > 2000;",
+    "alternativa_c": "SELECT * FROM biblioteca WHERE ano > 2000 ORDER BY ano ASC;",
+    "alternativa_d": "SELECT * FROM biblioteca ORDER BY ano ASC WHERE ano > 2000;",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Se aplicarmos a cláusula 'ORDER BY nome ASC' em uma coluna de texto que possui nomes iniciados com letras maiúsculas (ex: 'Ana') e minúsculas (ex: 'antônio'), como o resultado será ordenado?",
+    "alternativa_a": "Sempre misturará as letras ignorando completamente a caixa (Case-Insensitive) em qualquer SGBD.",
+    "alternativa_b": "Gará um erro de compilação por inconsistência de caixa de texto.",
+    "alternativa_c": "Dependerá do Collation (configuração de codificação e ordenação) do banco de dados ou da tabela.",
+    "alternativa_d": "As minúsculas sempre virão antes das maiúsculas obrigatoriamente.",
+    "resposta_correta": "C",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Considere a tabela 'pedidos' com as colunas 'id_cliente' e 'data_pedido'. Qual alternativa ordena os pedidos colocando as datas mais antigas primeiro e, para a mesma data, agrupa por id_cliente do maior para o menor?",
+    "alternativa_a": "ORDER BY data_pedido DESC, id_cliente ASC;",
+    "alternativa_b": "ORDER BY data_pedido ASC, id_cliente DESC;",
+    "alternativa_c": "ORDER BY data_pedido, id_cliente;",
+    "alternativa_d": "ORDER BY id_cliente DESC, data_pedido ASC;",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "O que acontece se você referenciar um número de coluna inexistente no SELECT dentro do ORDER BY (por exemplo, 'SELECT nome FROM clientes ORDER BY 3;')?",
+    "alternativa_a": "O SGBD ordenará pela terceira coluna física da tabela, mesmo ela não estando no SELECT.",
+    "alternativa_b": "O SGBD retornará um erro de execução informando que a posição está fora dos limites.",
+    "alternativa_c": "A cláusula ORDER BY será ignorada e o resultado virá sem ordenação.",
+    "alternativa_d": "O banco criará uma coluna temporária preenchida com o valor 3.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "De acordo com o padrão ANSI SQL, qual é o comportamento padrão de ordenação para registros que possuem valores nulos (NULL) em uma coluna numérica ordenada de forma ASC?",
+    "alternativa_a": "Os valores NULL são ignorados e excluídos do resultado da consulta.",
+    "alternativa_b": "Os valores NULL são tratados como o menor valor possível ou o maior valor possível, dependendo do SGBD (geralmente vêm primeiro ou por último).",
+    "alternativa_c": "O SGBD substitui temporariamente o NULL por zero para efetuar a ordenação.",
+    "alternativa_d": "A consulta falha se houver registros com valores nulos na coluna de ordenação.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Em bancos de dados como PostgreSQL ou Oracle, como você pode forçar para que os valores nulos (NULL) apareçam estritamente no final do resultado em uma ordenação ascendente (ASC)?",
+    "alternativa_a": "ORDER BY coluna ASC NULLS LAST;",
+    "alternativa_b": "ORDER BY coluna ASC NULLS BOTTOM;",
+    "alternativa_c": "ORDER BY coluna ASC WITHOUT NULLS;",
+    "alternativa_d": "ORDER BY coluna ASC, NULL DESC;",
+    "resposta_correta": "A",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Considere a consulta: 'SELECT nome FROM funcionarios ORDER BY salario DESC;'. Sabendo que a coluna 'salario' existe na tabela, mas não foi incluída na projeção do SELECT, o que acontecerá?",
+    "alternativa_a": "Ocorrerá um erro, pois só é permitido ordenar por colunas explicitamente projetadas no SELECT.",
+    "alternativa_b": "A consulta funcionará perfeitamente, pois o SQL permite ordenar por colunas da tabela que não estão na exibição final (exceto em contextos como o DISTINCT).",
+    "alternativa_c": "A coluna 'salario' será adicionada automaticamente ao resultado visual da consulta.",
+    "alternativa_d": "Os dados serão retornados, mas a ordenação por salário será ignorada.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Se uma consulta utiliza o modificador DISTINCT para remover duplicatas, como em 'SELECT DISTINCT cidade FROM clientes ORDER BY idade;', por que essa instrução pode falhar na maioria dos SGBDs?",
+    "alternativa_a": "Porque o DISTINCT proíbe o uso de qualquer ordenação na consulta.",
+    "alternativa_b": "Porque para eliminar duplicatas de 'cidade', o SGBD precisa combinar as linhas. Se ordenar por 'idade' (que não está no SELECT), ele não saberia qual idade escolher para as cidades duplicadas.",
+    "alternativa_c": "Porque o DISTINCT exige que a ordenação seja obrigatoriamente em ordem decrescente.",
+    "alternativa_d": "Porque a cláusula ORDER BY deve vir antes do DISTINCT na escrita do código.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Qual das seguintes estruturas utiliza uma expressão lógica válida no ORDER BY para ordenar registros colocando prioritariamente produtos da categoria 'Especiais' no topo da lista?",
+    "alternativa_a": "ORDER BY CASE WHEN categoria = 'Especiais' THEN 0 ELSE 1 END, nome ASC;",
+    "alternativa_b": "ORDER BY categoria = 'Especiais' FIRST;",
+    "alternativa_c": "ORDER BY IF(categoria = 'Especiais', TOP, BOTTOM);",
+    "alternativa_d": "ORDER BY categoria DESC WHERE categoria = 'Especiais';",
+    "resposta_correta": "A",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Análise a consulta: 'SELECT id, nome FROM produtos ORDER BY preco + taxa DESC;'. Sabendo que 'preco' e 'taxa' são colunas numéricas da tabela, qual o comportamento dessa ordenação?",
+    "alternativa_a": "Gerará um erro, pois o ORDER BY não aceita operadores matemáticos ou expressões.",
+    "alternativa_b": "Ordenará os produtos com base no resultado da soma de preço e taxa de cada registro de forma decrescente.",
+    "alternativa_c": "Ordenará primeiro pela coluna preco e depois somará de forma decrescente a taxa.",
+    "alternativa_d": "Ignorará a taxa e executará a ordenação apenas baseada no ID do produto.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 3,
+    "enunciado": "Considerando o processamento interno de uma consulta SQL (Order of Execution), qual das alternativas justifica o motivo de a cláusula ORDER BY ser executada após o processamento da cláusula SELECT?",
+    "alternativa_a": "Para permitir que o banco de dados valide os índices antes de formatar os dados.",
+    "alternativa_b": "Para possibilitar o uso de aliases (apelidos) definidos no SELECT e garantir que a ordenação ocorra sobre o conjunto final de dados prontos.",
+    "alternativa_c": "Porque o ORDER BY altera fisicamente a estrutura das páginas de dados no disco.",
+    "alternativa_d": "O ORDER BY é processado antes do SELECT, portanto a premissa da pergunta está errada.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  {
+    "conceito_id": 4,
+    "enunciado": "Qual função de agregação do SQL deve ser utilizada para contar o número total de linhas ou registros presentes em uma tabela?",
+    "alternativa_a": "SUM()",
+    "alternativa_b": "TOTAL()",
+    "alternativa_c": "COUNT()",
+    "alternativa_d": "NUMBER()",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Para calcular a média aritmética dos salários dos funcionários presentes na tabela 'empresa', qual função de agregação deve ser aplicada?",
+    "alternativa_a": "MED()",
+    "alternativa_b": "AVG()",
+    "alternativa_c": "AVERAGE()",
+    "alternativa_d": "MEAN()",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Deseja-se saber o valor do produto mais caro vendido na tabela 'itens_venda'. Qual comando SQL retorna essa informação?",
+    "alternativa_a": "SELECT MAX(preco) FROM itens_venda;",
+    "alternativa_b": "SELECT TOP(preco) FROM itens_venda;",
+    "alternativa_c": "SELECT HIGH(preco) FROM itens_venda;",
+    "alternativa_d": "SELECT BIG(preco) FROM itens_venda;",
+    "resposta_correta": "A",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Qual função de agregação calcula a soma acumulada de todos os valores contidos em uma coluna numérica?",
+    "alternativa_a": "ADD()",
+    "alternativa_b": "PLUS()",
+    "alternativa_c": "SUM()",
+    "alternativa_d": "TOTAL()",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Qual cláusula obrigatória do SQL deve ser utilizada em conjunto com as funções de agregação quando precisamos segmentar os cálculos por categorias (ex: faturamento total por estado)?",
+    "alternativa_a": "ORDER BY",
+    "alternativa_b": "PARTITION BY",
+    "alternativa_c": "GROUP BY",
+    "alternativa_d": "SEGMENT BY",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Deseja-se listar os departamentos e a quantidade de funcionários em cada um deles, mas exibindo apenas os departamentos que possuem mais de 10 colaboradores. Qual estrutura atende a essa condição?",
+    "alternativa_a": "GROUP BY departamento WHERE COUNT(*) > 10;",
+    "alternativa_b": "GROUP BY departamento HAVING COUNT(*) > 10;",
+    "alternativa_c": "WHERE COUNT(*) > 10 GROUP BY departamento;",
+    "alternativa_d": "HAVING COUNT(*) > 10 GROUP BY departamento;",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "A tabela 'clientes' possui uma coluna 'cidade'. Existem 100 registros na tabela, mas alguns clientes moram na mesma cidade e 5 registros estão com a cidade como NULL. O que retornará o comando 'SELECT COUNT(DISTINCT cidade) FROM clientes;'?",
+    "alternativa_a": "O número total de cidades cadastradas, desconsiderando as duplicadas e ignorando os valores nulos.",
+    "alternativa_b": "O número 100, pois o COUNT sempre lê todas as linhas.",
+    "alternativa_c": "O número total de cidades duplicadas incluindo uma linha para os nulos.",
+    "alternativa_d": "O número 95 fixo, independentemente de quantas cidades diferentes existam.",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Considere o comando: 'SELECT categoria, AVG(preco) FROM produtos;'. Sabendo que esta tabela possui múltiplas categorias e linhas, por que essa consulta gerará um erro de execução na maioria dos SGBDs?",
+    "alternativa_a": "Porque a função AVG não pode ser aplicada à coluna preço.",
+    "alternativa_b": "Porque ao misturar uma coluna comum (categoria) com uma função de agregação (AVG), é obrigatório incluir a cláusula GROUP BY para a coluna comum.",
+    "alternativa_c": "Porque faltou definir o alias para a coluna calculada.",
+    "alternativa_d": "Porque funções de agregação só funcionam em tabelas com chaves estrangeiras.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Qual é a principal diferença conceitual e de execução entre as cláusulas WHERE e HAVING em uma consulta SQL?",
+    "alternativa_a": "Nenhuma, ambas servem exatamente para a mesma função e são intercambiáveis.",
+    "alternativa_b": "O WHERE filtra linhas antes que os agrupamentos sejam feitos; o HAVING filtra os resultados consolidados após a execução do GROUP BY.",
+    "alternativa_c": "O HAVING filtra linhas individuais e o WHERE filtra apenas funções de agregação.",
+    "alternativa_d": "O WHERE é obrigatório em todas as consultas, enquanto o HAVING só pode ser usado com textos.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Se executarmos 'SELECT COUNT(telefone) FROM contatos;', e a tabela possuir 50 registros, mas em 10 deles o telefone for nulo (NULL), qual valor será retornado?",
+    "alternativa_a": "50",
+    "alternativa_b": "10",
+    "alternativa_c": "40",
+    "alternativa_d": "0",
+    "resposta_correta": "C",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Em uma tabela de 'vendas', qual comando agrupa o faturamento total por ano e por região simultaneamente?",
+    "alternativa_a": "SELECT ano, regiao, SUM(valor) FROM vendas GROUP BY ano, regiao;",
+    "alternativa_b": "SELECT ano, regiao, SUM(valor) FROM vendas GROUP BY ano AND regiao;",
+    "alternativa_c": "SELECT ano, regiao, SUM(valor) FROM vendas GROUP BY ano GROUP BY regiao;",
+    "alternativa_d": "SELECT ano, regiao, SUM(valor) FROM vendas WHERE ano, regiao;",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Deseja-se saber a menor nota obtida em um exame na tabela 'provas'. Qual função realiza essa busca?",
+    "alternativa_a": "MINIMUM(nota)",
+    "alternativa_b": "LOWEST(nota)",
+    "alternativa_c": "MIN(nota)",
+    "alternativa_d": "DOWN(nota)",
+    "resposta_correta": "C",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Ao utilizar o comando 'SELECT COUNT(*) FROM alunos;', o caractere asterisco garante que o banco de dados:",
+    "alternativa_a": "Conte apenas os registros que possuem todas as colunas preenchidas.",
+    "alternativa_b": "Conte o número total de linhas da tabela, incluindo linhas com valores nulos ou duplicados.",
+    "alternativa_c": "Retorne um erro se houver qualquer linha em branco.",
+    "alternativa_d": "Multiplique o número de colunas pelo número de registros.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Considere uma tabela 'notas' com 4 registros na coluna 'pontos': 10, 20, 30 e NULL. Qual será o resultado retornado pela consulta 'SELECT AVG(pontos) FROM notas;'?",
+    "alternativa_a": "15, pois o SQL divide a soma (60) por todos os 4 registros da tabela.",
+    "alternativa_b": "20, pois funções de agregação como o AVG ignoram valores NULL e dividem a soma (60) apenas pelos 3 registros preenchidos.",
+    "alternativa_c": "O SGBD retornará NULL ou um erro, pois não consegue calcular médias com valores ausentes.",
+    "alternativa_d": "60, pois ele apenas soma quando há nulos.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Analise a ordem lógica de processamento de uma consulta SQL pelo SGBD. Qual das seguintes alternativas apresenta a sequência correta de execução das cláusulas?",
+    "alternativa_a": "SELECT -> FROM -> WHERE -> GROUP BY -> HAVING",
+    "alternativa_b": "FROM -> WHERE -> GROUP BY -> HAVING -> SELECT",
+    "alternativa_c": "FROM -> GROUP BY -> HAVING -> WHERE -> SELECT",
+    "alternativa_d": "WHERE -> FROM -> GROUP BY -> SELECT -> HAVING",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Deseja-se calcular a comissão média dos vendedores. Sabendo que os vendedores sem comissão possuem o valor NULL na coluna 'comissao', qual expressão garante que os vendedores sem comissão sejam contabilizados como zero no cálculo da média global?",
+    "alternativa_a": "SELECT AVG(comissao IS NULL = 0) FROM vendedores;",
+    "alternativa_b": "SELECT AVG(COALESCE(comissao, 0)) FROM vendedores;",
+    "alternativa_c": "SELECT AVG(comissao) FROM vendedores WHERE comissao IS NULL;",
+    "alternativa_d": "SELECT SUM(comissao) / COUNT(comissao) FROM vendedores;",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Considere a consulta: 'SELECT status, cargo, COUNT(*) FROM funcionarios WHERE salario > 2000 GROUP BY status, cargo HAVING COUNT(*) > 5 ORDER BY status;'. Qual operação de filtragem ocorre antes do agrupamento dos dados?",
+    "alternativa_a": "A filtragem de contagem superior a 5 (HAVING COUNT(*) > 5).",
+    "alternativa_b": "A ordenação dos dados por status (ORDER BY status).",
+    "alternativa_c": "A filtragem dos salários dos funcionários (WHERE salario > 2000).",
+    "alternativa_d": "A projeção final das colunas selecionadas no SELECT.",
+    "resposta_correta": "C",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "É possível utilizar uma função de agregação dentro da cláusula WHERE de uma mesma consulta, como por exemplo: 'SELECT * FROM produtos WHERE preco > MAX(preco);'?",
+    "alternativa_a": "Sim, é a forma padrão de buscar o maior valor de uma tabela.",
+    "alternativa_b": "Não, funções de agregação não são permitidas na cláusula WHERE porque o WHERE avalia linhas individuais antes do cálculo agregado (exigiria uma subquery).",
+    "alternativa_c": "Sim, desde que a tabela possua um índice na coluna referenciada.",
+    "alternativa_d": "Não, a função MAX só pode ser utilizada se estiver acompanhada do GROUP BY no WHERE.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Na tabela 'vendas', a coluna 'cupom_desconto' armazena strings com códigos de desconto ou NULL quando nenhum cupom foi usado. O que retornará a expressão 'SELECT MAX(cupom_desconto) FROM vendas;'?",
+    "alternativa_a": "Um erro de execução, pois a função MAX só aceita dados estritamente numéricos.",
+    "alternativa_b": "A string que estiver em último lugar na ordem alfabética (Z-A), ignorando os valores nulos.",
+    "alternativa_c": "O valor numérico correspondente à contagem total de cupons.",
+    "alternativa_d": "O valor contido na primeira linha da tabela, independentemente do texto.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 4,
+    "enunciado": "Considerando uma tabela 'projetos', qual das seguintes consultas SQL apresenta uma sintaxe perfeitamente válida e livre de erros?",
+    "alternativa_a": "SELECT departamento, SUM(orcamento) FROM projetos HAVING SUM(orcamento) > 100000;",
+    "alternativa_b": "SELECT departamento, SUM(orcamento) FROM projetos GROUP BY departamento HAVING orcamento > 50000;",
+    "alternativa_c": "SELECT departamento, SUM(orcamento) FROM projetos GROUP BY departamento HAVING SUM(orcamento) > 100000;",
+    "alternativa_d": "SELECT SUM(orcamento) FROM projetos WHERE SUM(orcamento) > 100000 GROUP BY departamento;",
+    "resposta_correta": "C",
+    "dificuldade": 3
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "conceito_id": 5,
+    "enunciado": "Qual é o principal objetivo da cláusula GROUP BY em uma consulta SQL?",
+    "alternativa_a": "Ordenar as linhas do resultado em ordem alfabética ou numérica.",
+    "alternativa_b": "Agrupar linhas que possuem valores idênticos nas colunas especificadas para fins de agregação.",
+    "alternativa_c": "Filtrar os registros antes que qualquer cálculo seja executado no banco.",
+    "alternativa_d": "Unir duas ou mais tabelas baseando-se em uma chave primária.",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Em uma tabela chamada 'escolas', deseja-se saber a quantidade de alunos agrupados por 'turma'. Qual comando preenche corretamente a lacuna: 'SELECT turma, COUNT(*) FROM escolas ___________;'?",
+    "alternativa_a": "GROUP BY turma",
+    "alternativa_b": "ORDER BY turma",
+    "alternativa_c": "WHERE turma",
+    "alternativa_d": "HAVING turma",
+    "resposta_correta": "A",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Ao estruturar uma consulta com agrupamento, onde a cláusula GROUP BY deve ser posicionada em relação à cláusula FROM?",
+    "alternativa_a": "Imediatamente antes da cláusula FROM.",
+    "alternativa_b": "Sempre após a cláusula FROM (e após o WHERE, se ele existir).",
+    "alternativa_c": "No início do comando SELECT, antes de listar as colunas.",
+    "alternativa_d": "Dentro dos parênteses da função de agregação.",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Se você deseja agrupar os dados da tabela 'vendas' por duas colunas, 'ano' e 'mes', qual é a sintaxe correta para separá-las no GROUP BY?",
+    "alternativa_a": "GROUP BY ano AND mes;",
+    "alternativa_b": "GROUP BY ano, mes;",
+    "alternativa_c": "GROUP BY ano + mes;",
+    "alternativa_d": "GROUP BY ano GROUP BY mes;",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "O que acontece se usarmos a cláusula GROUP BY em uma consulta simples que não possui nenhuma função de agregação (como SUM ou COUNT) no SELECT?",
+    "alternativa_a": "O SGBD gera um erro fatal de compilação.",
+    "alternativa_b": "A consulta funcionará, agindo de forma semelhante ao modificador DISTINCT ao consolidar as linhas duplicadas.",
+    "alternativa_c": "O SGBD ignorará o GROUP BY e trará todas as linhas duplicadas.",
+    "alternativa_d": "Os dados serão ordenados de forma decrescente automaticamente.",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Considere a tabela 'livros' com as colunas 'genero' e 'ano_publicacao'. Qual consulta calcula o total de livros por gênero, mas apenas para os livros publicados a partir do ano 2010?",
+    "alternativa_a": "SELECT genero, COUNT(*) FROM livros WHERE ano_publicacao >= 2010 GROUP BY genero;",
+    "alternativa_b": "SELECT genero, COUNT(*) FROM livros GROUP BY genero HAVING ano_publicacao >= 2010;",
+    "alternativa_c": "SELECT genero, COUNT(*) FROM livros GROUP BY genero WHERE ano_publicacao >= 2010;",
+    "alternativa_d": "SELECT genero, COUNT(*) FROM livros HAVING ano_publicacao >= 2010 GROUP BY genero;",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Se uma tabela possui valores nulos (NULL) na coluna utilizada para o agrupamento (ex: GROUP BY departamento), como o SQL gerencia esses registros nulos no resultado?",
+    "alternativa_a": "Os registros com valores nulos são completamente descartados e omitidos do resultado.",
+    "alternativa_b": "O SGBD gera uma linha de agrupamento exclusiva para consolidar todos os valores NULL.",
+    "alternativa_c": "Cada valor nulo ganha uma linha individualizada no resultado, sem agrupá-los.",
+    "alternativa_d": "A execução é interrompida com uma mensagem de erro de restrição.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Analise o comando: 'SELECT cargo, localidade, SUM(salario) FROM empregados GROUP BY cargo;'. Por que esta instrução falhará na maioria dos bancos de dados relacionais?",
+    "alternativa_a": "Porque a coluna 'localidade' foi listada no SELECT, mas não foi incluída na cláusula GROUP BY nem encapsulada em uma função de agregação.",
+    "alternativa_b": "Porque a função SUM não aceita agrupamentos parciais.",
+    "alternativa_c": "Porque o GROUP BY exige que todas as colunas sejam estritamente numéricas.",
+    "alternativa_d": "Porque faltou ordenar o resultado com a cláusula ORDER BY.",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Deseja-se agrupar as vendas por 'vendedor' e exibir apenas aqueles cujo total de vendas seja superior a 50000. Onde deve ser colocada essa validação de valor?",
+    "alternativa_a": "Na cláusula WHERE, ex: WHERE SUM(valor) > 50000.",
+    "alternativa_b": "Na cláusula HAVING, ex: HAVING SUM(valor) > 50000.",
+    "alternativa_c": "Diretamente dentro da cláusula GROUP BY, ex: GROUP BY vendedor > 50000.",
+    "alternativa_d": "Na projeção do SELECT através de um ALIAS.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Qual alternativa descreve o comportamento correto do comando 'SELECT status, COUNT(*) FROM chamados GROUP BY status ORDER BY COUNT(*) DESC;'?",
+    "alternativa_a": "Agrupa os chamados por status e ordena os grupos trazendo o status com menor quantidade primeiro.",
+    "alternativa_b": "Agrupa os chamados por status e ordena os grupos trazendo o status com maior quantidade de registros no topo.",
+    "alternativa_c": "Gera um erro, pois não é permitido utilizar funções de agregação dentro do ORDER BY.",
+    "alternativa_d": "Filtra os chamados ignorando os status duplicados e exibindo-os de forma aleatória.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Em uma tabela de 'produtos' com os campos 'categoria' e 'marca', qual comando realiza o agrupamento combinando esses dois campos para obter a média de preço de cada par existente?",
+    "alternativa_a": "SELECT categoria, marca, AVG(preco) FROM produtos GROUP BY categoria, marca;",
+    "alternativa_b": "SELECT categoria, marca, AVG(preco) FROM produtos GROUP BY categoria AND marca;",
+    "alternativa_c": "SELECT categoria, marca, AVG(preco) FROM produtos GROUP BY categoria + marca;",
+    "alternativa_d": "SELECT categoria, marca, AVG(preco) FROM produtos GROUP BY categoria, GROUP BY marca;",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Ao utilizar aliases (apelidos) no SELECT, como em 'SELECT categoria AS cat, COUNT(*) FROM itens GROUP BY ...', o que o padrão ANSI SQL determina sobre referenciar o alias 'cat' dentro do GROUP BY?",
+    "alternativa_a": "É obrigatório usar o alias no GROUP BY em todos os SGBDs.",
+    "alternativa_b": "Não é permitido na maioria dos SGBDs padrão, pois o GROUP BY é processado logicamente antes da cláusula SELECT (sendo necessário usar o nome original 'categoria').",
+    "alternativa_c": "O alias só pode ser usado se for delimitado por chaves.",
+    "alternativa_d": "O uso do alias duplica o tempo de processamento da consulta.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Na tabela 'hospedagens', deseja-se descobrir o maior valor cobrado agrupado por 'quarto'. Qual instrução atende a esse objetivo?",
+    "alternativa_a": "SELECT quarto, MAX(preco) FROM hospedagens GROUP BY quarto;",
+    "alternativa_b": "SELECT quarto, SUM(preco) FROM hospedagens GROUP BY quarto;",
+    "alternativa_c": "SELECT quarto, COUNT(preco) FROM hospedagens GROUP BY quarto;",
+    "alternativa_d": "SELECT quarto, AVG(preco) FROM hospedagens GROUP BY quarto;",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Considere o comando: 'SELECT estado, cidade, COUNT(*) FROM clientes GROUP BY estado, cidade;'. Se uma tabela tiver 4 clientes em 'SP - Capital' e 2 clientes em 'SP - Campinas', quantas linhas de resultado este agrupamento retornará para o estado de SP?",
+    "alternativa_a": "1 linha, combinando Capital e Campinas.",
+    "alternativa_b": "2 linhas, uma para 'SP - Capital' (com contagem 4) e outra para 'SP - Campinas' (com contagem 2).",
+    "alternativa_c": "6 linhas, listando cada cliente individualmente.",
+    "alternativa_d": "Nenhuma, pois misturar estado e cidade no mesmo grupo causa erro de cardinalidade.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Em alguns SGBDs (como o PostgreSQL), se agruparmos os dados pela Chave Primária (Primary Key) de uma tabela, o que acontece com as outras colunas comuns daquela mesma tabela no SELECT?",
+    "alternativa_a": "Elas ainda precisam obrigatoriamente estar listadas no GROUP BY, sem exceção.",
+    "alternativa_b": "Elas podem ser listadas no SELECT sem agrupamento ou agregação, pois a chave primária garante dependência funcional total das outras colunas da linha.",
+    "alternativa_c": "A consulta falha, pois chaves primárias são proibidas dentro da cláusula GROUP BY.",
+    "alternativa_d": "O SGBD converte automaticamente todas as colunas comuns em contadores numéricos.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Dada a consulta: 'SELECT EXTRACT(YEAR FROM data_pedido), COUNT(*) FROM pedidos GROUP BY EXTRACT(YEAR FROM data_pedido);'. Qual é a regra gramatical do SQL demonstrada nessa instrução?",
+    "alternativa_a": "É inválida, pois o GROUP BY não aceita funções de manipulação de data.",
+    "alternativa_b": "É perfeitamente válida, demonstrando que expressões ou funções aplicadas às colunas no SELECT devem ser replicadas identicamente na cláusula GROUP BY.",
+    "alternativa_c": "Apenas funcionará se criarmos uma tabela temporária previamente.",
+    "alternativa_d": "O GROUP BY processará o ano, mas a contagem final será zerada devido à conversão.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Analise a seguinte estrutura lógica: 'SELECT status, AVG(preco) FROM produtos WHERE preco > 10 GROUP BY status HAVING AVG(preco) > 50;'. O que a cláusula WHERE está fazendo nesse fluxo completo de agrupamento?",
+    "alternativa_a": "Filtrando os grupos calculados finais cujo valor médio superou 10.",
+    "alternativa_b": "Excluindo produtos individuais com preço igual ou menor que 10 antes mesmo de o SGBD calcular os agrupamentos e médias por status.",
+    "alternativa_c": "Substituindo a cláusula HAVING para otimizar a velocidade da consulta.",
+    "alternativa_d": "Ordenando as linhas de cada status de forma interna.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "No padrão SQL, se utilizarmos números inteiros na cláusula GROUP BY (ex: GROUP BY 1, 2;), qual será a interpretação do interpretador do SGBD?",
+    "alternativa_a": "Ele agrupará os dados fixando os valores literais 1 e 2 em todas as linhas.",
+    "alternativa_b": "Ele interpretará os números como referências posicionais às colunas ordenadas (1ª e 2ª colunas) que foram especificadas na projeção do SELECT.",
+    "alternativa_c": "Gará um erro de sintaxe, pois o GROUP BY rejeita valores inteiros puros.",
+    "alternativa_d": "O banco agrupará apenas as duas primeiras linhas físicas encontradas no disco.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Considere a tabela 'projetos' com os campos 'departamento', 'gerente' e 'orcamento'. Deseja-se exibir o orçamento total por departamento, mas mantendo na consulta a informação visual do gerente responsável de cada projeto. Como resolver o erro de agrupamento mantendo a integridade sem alterar a granularidade do departamento?",
+    "alternativa_a": "Adicionando a coluna 'gerente' no GROUP BY, sabendo que isso mudará o grupo para uma granularidade combinada (departamento + gerente).",
+    "alternativa_b": "Removendo o GROUP BY e utilizando funções analíticas/janela (Window Functions, como SUM(orcamento) OVER(PARTITION BY departamento)).",
+    "alternativa_c": "Colocando a palavra-chave DISTINCT logo antes da coluna gerente.",
+    "alternativa_d": "Usando a cláusula WHERE gerente IS NOT NULL no final da consulta.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 5,
+    "enunciado": "Por que o uso excessivo ou incorreto da cláusula GROUP BY em tabelas com milhões de registros costuma causar alto consumo de memória e lentidão (High Cost) no plano de execução?",
+    "alternativa_a": "Porque o GROUP BY exige que o SGBD realize uma operação interna de ordenação (Sort) ou hashing dos dados na memória para mapear e consolidar os registros idênticos em grupos.",
+    "alternativa_b": "Porque o GROUP BY reconstrói os índices primários da tabela a cada execução.",
+    "alternativa_c": "Porque ele bloqueia a tabela impossibilitando leituras paralelas.",
+    "alternativa_d": "Porque converte todas as tabelas em arquivos de texto temporários no servidor.",
+    "resposta_correta": "A",
+    "dificuldade": 3
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "conceito_id": 6,
+    "enunciado": "Qual é o principal objetivo da cláusula HAVING em uma consulta SQL?",
+    "alternativa_a": "Substituir completamente a cláusula WHERE em tabelas que não possuem chaves primárias.",
+    "alternativa_b": "Filtrar os resultados de funções de agregação após os dados terem sido agrupados pelo GROUP BY.",
+    "alternativa_c": "Ordenar os registros consolidados em ordem estritamente decrescente.",
+    "alternativa_d": "Unir linhas de duas tabelas diferentes baseando-se em uma condição lógica.",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Para listar as categorias da tabela 'produtos' que possuem uma média de preço superior a 100, qual cláusula preenche corretamente a lacuna: 'SELECT categoria, AVG(preco) FROM produtos GROUP BY categoria ___________;'?",
+    "alternativa_a": "WHERE AVG(preco) > 100",
+    "alternativa_b": "HAVING AVG(preco) > 100",
+    "alternativa_c": "IF AVG(preco) > 100",
+    "alternativa_d": "WHEN AVG(preco) > 100",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Por que não podemos filtrar o resultado de uma função de agregação (como SUM ou COUNT) diretamente dentro de uma cláusula WHERE tradicional (ex: WHERE SUM(valor) > 1000)?",
+    "alternativa_a": "Porque o WHERE é executado antes do agrupamento dos dados, impossibilitando-o de conhecer os resultados agregados.",
+    "alternativa_b": "Porque o WHERE só aceita colunas que contenham dados do tipo texto.",
+    "alternativa_c": "Porque as funções de agregação bloqueiam o uso do WHERE por motivos de segurança do banco.",
+    "alternativa_d": "Porque o WHERE exige que o dado seja comparado apenas com números inteiros.",
+    "resposta_correta": "A",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Qual das seguintes alternativas apresenta uma sintaxe válida utilizando a cláusula HAVING?",
+    "alternativa_a": "SELECT estado FROM clientes HAVING COUNT(*) > 5 GROUP BY estado;",
+    "alternativa_b": "SELECT estado FROM clientes GROUP BY estado WHERE COUNT(*) > 5;",
+    "alternativa_c": "SELECT estado FROM clientes GROUP BY estado HAVING COUNT(*) > 5;",
+    "alternativa_d": "SELECT estado FROM clientes HAVING WHERE COUNT(*) > 5;",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "A cláusula HAVING pode ser utilizada com quais tipos de operadores para validar suas condições?",
+    "alternativa_a": "Apenas operadores relacionais simples como igual (=) e maior que (>).",
+    "alternativa_b": "Operadores de comparação, lógicos (AND, OR, NOT) e condicionais complexos, desde que aplicados a valores agregados ou colunas do grupo.",
+    "alternativa_c": "Apenas o operador LIKE para busca de strings em grupos.",
+    "alternativa_d": "Nenhum operador, pois ela aceita apenas o nome da função de agregação.",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Considere o comando: 'SELECT cidade, COUNT(*) FROM filiais GROUP BY cidade HAVING COUNT(*) BETWEEN 2 AND 5;'. O que essa consulta retornará?",
+    "alternativa_a": "Cidades que possuem entre 2 e 5 filiais cadastradas (inclusive).",
+    "alternativa_b": "Cidades cujos identificadores estejam entre os números 2 e 5.",
+    "alternativa_c": "Um erro, pois o operador BETWEEN não pode ser associado à cláusula HAVING.",
+    "alternativa_d": "As 5 primeiras cidades da tabela, pulando as duas primeiras linhas.",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Deseja-se listar os códigos dos vendedores que fizeram mais de 50 vendas E cujo valor total vendido supere 100.000. Qual cláusula HAVING atende cumulativamente a esse requisito?",
+    "alternativa_a": "HAVING COUNT(*) > 50 OR SUM(valor) > 100000",
+    "alternativa_b": "HAVING COUNT(*) > 50 AND SUM(valor) > 100000",
+    "alternativa_c": "HAVING COUNT(*) > 50 , SUM(valor) > 100000",
+    "alternativa_d": "HAVING COUNT(*) > 50 WHERE SUM(valor) > 100000",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Analise o comando: 'SELECT secao, SUM(estoque) FROM almoxarifado GROUP BY secao HAVING local = 'Galpão A';'. Sabendo que 'local' é uma coluna de texto comum da tabela e não está no GROUP BY, por que essa consulta falhará?",
+    "alternativa_a": "Porque o HAVING não aceita comparações com valores do tipo string.",
+    "alternativa_b": "Porque o HAVING está tentando filtrar uma coluna não agregada que varia de linha para linha, algo que deveria ser feito previamente no WHERE.",
+    "alternativa_c": "Porque o operador de igualdade (=) é proibido dentro do HAVING.",
+    "alternativa_d": "Porque a função SUM exige que o HAVING utilize obrigatoriamente a função AVG.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Qual das seguintes consultas filtra corretamente os registros individuais da tabela 'vendas' para valores acima de 100 reais, agrupa por produto e depois exibe apenas os produtos cujo faturamento total agregado do grupo passe de 5000 reais?",
+    "alternativa_a": "SELECT produto, SUM(valor) FROM vendas WHERE valor > 100 GROUP BY produto HAVING SUM(valor) > 5000;",
+    "alternativa_b": "SELECT produto, SUM(valor) FROM vendas HAVING SUM(valor) > 5000 GROUP BY produto WHERE valor > 100;",
+    "alternativa_c": "SELECT produto, SUM(valor) FROM vendas GROUP BY produto HAVING valor > 100 AND SUM(valor) > 5000;",
+    "alternativa_d": "SELECT produto, SUM(valor) FROM vendas WHERE valor > 100 AND SUM(valor) > 5000 GROUP BY produto;",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Em uma consulta contendo WHERE, GROUP BY e HAVING, qual é a ordem cronológica exata em que o SGBD aplica os filtros às linhas e grupos?",
+    "alternativa_a": "O HAVING filtra os grupos primeiro, o WHERE filtra as linhas depois.",
+    "alternativa_b": "O WHERE filtra as linhas individuais, os grupos são gerados, e o HAVING filtra esses grupos finais.",
+    "alternativa_c": "O WHERE e o HAVING atuam juntos na mesma etapa de varredura do disco.",
+    "alternativa_d": "O HAVING desativa o WHERE se ambos utilizarem a mesma coluna.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "É possível utilizar a cláusula HAVING em uma consulta SQL que NÃO possua a cláusula GROUP BY explicitada (ex: 'SELECT SUM(salario) FROM empregados HAVING SUM(salario) > 10000;')?",
+    "alternativa_a": "Não, o HAVING gera um erro fatal instantâneo se o GROUP BY não for escrito.",
+    "alternativa_b": "Sim, é sintaticamente válido no padrão ANSI SQL; o banco interpretará a tabela inteira como um único grande grupo para aplicar a função e o filtro.",
+    "alternativa_c": "Sim, mas a consulta limpará e apagará os dados que não passarem no filtro.",
+    "alternativa_d": "Não, o HAVING se transforma em um comentário se o GROUP BY for omitido.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Considere a consulta: 'SELECT cargo, COUNT(*) FROM funcionarios GROUP BY cargo HAVING cargo IN ('Analista', 'Gerente');'. Embora funcione, por que essa estrutura é considerada ineficiente em termos de performance?",
+    "alternativa_a": "Porque o operador IN não deve ser usado com colunas do tipo texto.",
+    "alternativa_b": "Porque filtrar colunas comuns ('cargo') no HAVING força o banco a agrupar a tabela inteira antes de descartar os cargos indesejados, algo que o WHERE faria antes de gastar memória com o agrupamento.",
+    "alternativa_c": "Porque o HAVING só deve conter a função de contagem COUNT(*).",
+    "alternativa_d": "Porque o GROUP BY não aceita que a coluna de grupo seja filtrada de nenhuma forma.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Deseja-se encontrar os departamentos cujo maior salário pago seja menor ou igual a 3000 reais. Qual comando executa essa verificação?",
+    "alternativa_a": "SELECT departamento FROM funcionarios GROUP BY departamento HAVING MAX(salario) <= 3000;",
+    "alternativa_b": "SELECT departamento FROM funcionarios GROUP BY departamento HAVING MIN(salario) <= 3000;",
+    "alternativa_c": "SELECT departamento FROM funcionarios WHERE MAX(salario) <= 3000 GROUP BY departamento;",
+    "alternativa_d": "SELECT departamento FROM funcionarios GROUP BY departamento HAVING salario <= 3000;",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Analise a instrução: 'SELECT projeto, AVG(custo) FROM tarefas GROUP BY projeto HAVING COUNT(data_entrega) > 0;'. Se o campo 'data_entrega' tiver valores nulos (NULL) dentro de um projeto, como o HAVING processará esse projeto?",
+    "alternativa_a": "O COUNT(data_entrega) ignorará as linhas nulas daquele projeto, contando apenas as preenchidas para ver se o total supera zero.",
+    "alternativa_b": "O projeto será excluído automaticamente porque o HAVING aborta ao encontrar qualquer nulo.",
+    "alternativa_c": "O COUNT converterá o nulo em zero e somará ao contador final.",
+    "alternativa_d": "A consulta falhará exigindo o uso da função COALESCE no HAVING.",
+    "resposta_correta": "A",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Se criarmos um alias para uma coluna agregada, como em 'SELECT marca, COUNT(*) AS total FROM carros GROUP BY marca HAVING total > 10;', por que essa consulta pode falhar na maioria dos SGBDs?",
+    "alternativa_a": "Porque o nome 'total' é uma palavra-chave reservada do SQL.",
+    "alternativa_b": "Porque o HAVING é processado logicamente antes da cláusula SELECT, fazendo com que o SGBD ainda não reconheça o apelido 'total' (sendo necessário repetir 'COUNT(*) > 10').",
+    "alternativa_c": "Porque o HAVING exige que aliases sejam escritos com aspas duplas obrigatoriamente.",
+    "alternativa_d": "Porque funções de contagem não aceitam receber codinomes.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Considere que você precisa encontrar os anos em que a tabela 'vendas' registrou mais cupons distintos aplicados do que a meta fixa de 100 unidades. Qual comando estruturado com HAVING resolve esse problema?",
+    "alternativa_a": "SELECT ano FROM vendas GROUP BY ano HAVING COUNT(DISTINCT cupom) > 100;",
+    "alternativa_b": "SELECT ano FROM vendas GROUP BY ano HAVING DISTINCT COUNT(cupom) > 100;",
+    "alternativa_c": "SELECT ano FROM vendas WHERE COUNT(DISTINCT cupom) > 100 GROUP BY ano;",
+    "alternativa_d": "SELECT ano FROM vendas GROUP BY ano HAVING SUM(DISTINCT cupom) > 100;",
+    "resposta_correta": "A",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Analise o trecho: 'GROUP BY regiao HAVING NOT SUM(faturamento) < 50000'. Essa condição lógica do HAVING é semanticamente equivalente a qual das opções abaixo?",
+    "alternativa_a": "HAVING SUM(faturamento) <= 50000",
+    "alternativa_b": "HAVING SUM(faturamento) > 50000",
+    "alternativa_c": "HAVING SUM(faturamento) >= 50000",
+    "alternativa_d": "HAVING SUM(faturamento) != 50000",
+    "resposta_correta": "C",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Em uma tabela de 'matriculas', deseja-se listar os cursos que possuem alunos, mas cuja quantidade de alunos ativos (situacao = 'Ativo') seja estritamente igual a zero (ou seja, cursos que só têm alunos inativos). Qual consulta resolve essa lógica complexa?",
+    "alternativa_a": "SELECT curso FROM matriculas WHERE situacao = 'Ativo' GROUP BY curso HAVING COUNT(*) = 0;",
+    "alternativa_b": "SELECT curso FROM matriculas GROUP BY curso HAVING COUNT(CASE WHEN situacao = 'Ativo' THEN 1 END) = 0;",
+    "alternativa_c": "SELECT curso FROM matriculas GROUP BY curso HAVING situacao != 'Ativo';",
+    "alternativa_d": "SELECT curso FROM matriculas WHERE situacao != 'Ativo' GROUP BY curso HAVING COUNT(*) = 0;",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "O que acontece ao rodarmos a instrução 'SELECT status FROM pedidos GROUP BY status HAVING COUNT(*) > (SELECT COUNT(*) FROM historico_erros);'?",
+    "alternativa_a": "Gerará um erro, pois a cláusula HAVING não permite o uso de subqueries (subconsultas) em suas validações.",
+    "alternativa_b": "O banco executará a subquery para obter o total de erros e filtrará os grupos de status cujo número de pedidos seja superior a essa contagem global obtida.",
+    "alternativa_c": "A consulta executará um JOIN implícito travando a tabela de pedidos.",
+    "alternativa_d": "O HAVING ignorará a subquery e fará a filtragem baseando-se em zero.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 6,
+    "enunciado": "Considerando o Plano de Execução e a otimização de consultas (Query Optimization), por que os administradores de banco de dados (DBAs) recomendam mover filtros de colunas estáticas do HAVING para o WHERE?",
+    "alternativa_a": "Porque o WHERE reduz drasticamente o volume de dados que entram na esteira de processamento do GROUP BY, economizando uso de CPU, paginação em disco e memória RAM temporária.",
+    "alternativa_b": "Porque o WHERE encripta os dados protegendo as colunas de vazamentos.",
+    "alternativa_c": "Porque o HAVING apaga fisicamente as linhas que não atendem ao critério.",
+    "alternativa_d": "Mover filtros para o WHERE altera os resultados matemáticos finais da agregação, tornando a recomendação incorreta.",
+    "resposta_correta": "A",
+    "dificuldade": 3
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "conceito_id": 7,
+    "enunciado": "Qual tipo de JOIN retorna apenas os registros que possuem correspondência exata em ambas as tabelas que estão sendo unidas?",
+    "alternativa_a": "LEFT JOIN",
+    "alternativa_b": "INNER JOIN",
+    "alternativa_c": "FULL JOIN",
+    "alternativa_d": "CROSS JOIN",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "Na cláusula de junção 'FROM clientes INNER JOIN pedidos ON clientes.id = pedidos.cliente_id', qual é a função da palavra-chave ON?",
+    "alternativa_a": "Ordenar o resultado final da junção baseado nos identificadores.",
+    "alternativa_b": "Especificar a condição lógica de correspondência (geralmente Chave Primária = Chave Estrangeira) para unir as tabelas.",
+    "alternativa_c": "Agrupar as linhas duplicadas após a junção acontecer.",
+    "alternativa_d": "Filtrar quais colunas serão exibidas na projeção do SELECT.",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "Se você precisa de uma consulta que traga todos os registros da tabela 'alunos' (à esquerda), mesmo aqueles que não possuem nenhum registro correspondente na tabela 'matriculas' (à direita), qual JOIN deve ser usado?",
+    "alternativa_a": "RIGHT JOIN",
+    "alternativa_b": "LEFT JOIN",
+    "alternativa_c": "INNER JOIN",
+    "alternativa_d": "NATURAL JOIN",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "O que acontece com as colunas vindas da tabela da direita em um LEFT JOIN quando uma linha da tabela da esquerda não possui nenhuma correspondência?",
+    "alternativa_a": "O SGBD gera um erro e interrompe a execução da consulta.",
+    "alternativa_b": "As colunas da tabela da direita são preenchidas com valores nulos (NULL) para essa linha.",
+    "alternativa_c": "O SGBD ignora a linha da esquerda e não a exibe no resultado.",
+    "alternativa_d": "As colunas repetem os valores da tabela da esquerda de forma automática.",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "Qual cláusula realiza a junção de duas tabelas 'A' e 'B' gerando um produto cartesiano, ou seja, combinando cada linha da tabela A com todas as linhas da tabela B?",
+    "alternativa_a": "A INNER JOIN B",
+    "alternativa_b": "A CROSS JOIN B",
+    "alternativa_c": "A LEFT JOIN B",
+    "alternativa_d": "A OUTER JOIN B",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "Considere as tabelas 'produtos' e 'fabricantes'. Ambas possuem uma coluna chamada 'id'. Ao executar 'SELECT id FROM produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id;', por que ocorrerá um erro de execução?",
+    "alternativa_a": "Porque o INNER JOIN proíbe a seleção de colunas com o nome 'id'.",
+    "alternativa_b": "Porque a coluna 'id' no SELECT é ambígua, sendo obrigatório especificar de qual tabela ela deve ser extraída (ex: produtos.id ou fabricantes.id).",
+    "alternativa_c": "Porque faltou utilizar a cláusula GROUP BY id no final.",
+    "alternativa_d": "Porque chaves primárias não podem ser projetadas em consultas com junção.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "A instrução 'FROM funcionarios F INNER JOIN departamentos D ON F.depto_id = D.id' utiliza as letras 'F' e 'D'. Qual é a utilidade prática dessa definição?",
+    "alternativa_a": "Mudar permanentemente o nome das tabelas no banco de dados.",
+    "alternativa_b": "Definir aliases (apelidos) para as tabelas, simplificando a escrita do código e a qualificação de colunas ambíguas.",
+    "alternativa_c": "Criar um índice temporário para acelerar a velocidade do JOIN.",
+    "alternativa_d": "Indicar qual tabela possui mais registros armazenados.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "Se a tabela 'vendedores' possui 10 linhas e a tabela 'lojas' possui 3 linhas, quantas linhas retornará a consulta 'SELECT * FROM vendedores CROSS JOIN lojas;'?",
+    "alternativa_a": "13 linhas.",
+    "alternativa_b": "30 linhas.",
+    "alternativa_c": "10 linhas.",
+    "alternativa_d": "7 linhas.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "Qual é a equivalência lógica entre as cláusulas RIGHT JOIN e LEFT JOIN no SQL?",
+    "alternativa_a": "Não há equivalência, eles operam de formas totalmente distintas e independentes.",
+    "alternativa_b": "A consulta 'A RIGHT JOIN B' produz exatamente o mesmo resultado que 'B LÉFT JOIN A', bastando inverter a ordem das tabelas.",
+    "alternativa_c": "O RIGHT JOIN converte todos os dados em maiúsculas e o LEFT JOIN em minúsculas.",
+    "alternativa_d": "O RIGHT JOIN só funciona com chaves numéricas e o LEFT JOIN com textos.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "Deseja-se unir a tabela 'livros' com a tabela 'autores'. Sabendo que a coluna de ligação em ambas chama-se exatamente 'autor_id', qual palavra-chave atua como um atalho sintático substituindo a cláusula 'ON livros.autor_id = autores.autor_id'?",
+    "alternativa_a": "USING (autor_id)",
+    "alternativa_b": "WITH (autor_id)",
+    "alternativa_c": "SAME (autor_id)",
+    "alternativa_d": "MATCH (autor_id)",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "Considere que você precisa unir três tabelas em uma única consulta: 'clientes', 'pedidos' e 'itens'. Qual é a estrutura correta para realizar múltiplos JOINs encadeados?",
+    "alternativa_a": "SELECT * FROM clientes INNER JOIN pedidos ON clientes.id = pedidos.clie_id INNER JOIN itens ON pedidos.id = itens.ped_id;",
+    "alternativa_b": "SELECT * FROM clientes INNER JOIN pedidos INNER JOIN itens ON clientes.id = pedidos.clie_id = itens.ped_id;",
+    "alternativa_c": "SELECT * FROM clientes, pedidos, itens ON clientes.id = pedidos.clie_id AND pedidos.id = itens.ped_id;",
+    "alternativa_d": "SELECT * FROM clientes INNER JOIN pedidos ON clientes.id = pedidos.clie_id WHERE JOIN itens ON pedidos.id = itens.ped_id;",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "O que diferencia um FULL OUTER JOIN dos demais tipos de junções?",
+    "alternativa_a": "Ele retorna apenas as linhas que não possuem nenhuma correspondência entre as tabelas.",
+    "alternativa_b": "Ele retorna todos os registros de ambas as tabelas, unindo os correspondentes e preenchendo com NULL os lados onde não houver par.",
+    "alternativa_c": "Ele limpa o banco de dados excluindo os registros órfãos.",
+    "alternativa_d": "Ele duplica a quantidade de colunas de forma aleatória.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "Em uma consulta com 'FROM categorias C LEFT JOIN produtos P ON C.id = P.categoria_id', onde deve ser colocado um filtro para trazer apenas produtos com preço maior que 50 sem que isso desconfigure o comportamento do LEFT JOIN (mantendo as categorias sem produto)?",
+    "alternativa_a": "Na cláusula WHERE global da consulta.",
+    "alternativa_b": "Diretamente na cláusula ON da junção, usando o operador AND (ex: ON C.id = P.categoria_id AND P.preco > 50).",
+    "alternativa_c": "Dentro de uma cláusula HAVING no final da consulta.",
+    "alternativa_d": "Não é possível realizar esse tipo de filtragem em um LEFT JOIN.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "Deseja-se realizar uma técnica conhecida como 'Anti-Join' (encontrar registros de uma tabela que NÃO possuem correspondência em outra). Utilizando a tabela 'clientes' e 'pedidos', qual estrutura implementa essa lógica?",
+    "alternativa_a": "SELECT clientes.* FROM clientes INNER JOIN pedidos ON clientes.id = pedidos.cliente_id WHERE pedidos.cliente_id IS NULL;",
+    "alternativa_b": "SELECT clientes.* FROM clientes LEFT JOIN pedidos ON clientes.id = pedidos.cliente_id WHERE pedidos.cliente_id IS NULL;",
+    "alternativa_c": "SELECT clientes.* FROM clientes RIGHT JOIN pedidos ON clientes.id = pedidos.cliente_id WHERE clientes.id IS NOT NULL;",
+    "alternativa_d": "SELECT clientes.* FROM clientes CROSS JOIN pedidos WHERE pedidos.cliente_id = 0;",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "O que é um Self-Join e em qual cenário do mundo real ele é tipicamente aplicado?",
+    "alternativa_a": "É uma junção automática feita pelo SGBD para corrigir erros de chaves.",
+    "alternativa_b": "É quando uma tabela é unida com ela mesma através do uso de aliases diferentes, útil para mapear estruturas hierárquicas (ex: uma tabela de funcionários onde uma coluna aponta para o ID do gerente, que também é um funcionário).",
+    "alternativa_c": "É um tipo de JOIN que só aceita tabelas que possuem apenas uma coluna.",
+    "alternativa_d": "É um comando para fundir duas tabelas que possuem estruturas idênticas.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "Considere o comando: 'SELECT * FROM clientes, pedidos WHERE clientes.id = pedidos.cliente_id;'. Esta sintaxe antiga (padrão ANSI SQL-89) equivale a qual comando moderno?",
+    "alternativa_a": "A um LEFT JOIN.",
+    "alternativa_b": "A um INNER JOIN, embora a sintaxe moderna com a palavra INNER JOIN e cláusula ON seja recomendada por legibilidade e separação de lógica de filtro.",
+    "alternativa_c": "A um CROSS JOIN puro sem filtros.",
+    "alternativa_d": "A um FULL OUTER JOIN.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "Analise a consulta: 'SELECT C.nome, COUNT(P.id) FROM clientes C LEFT JOIN pedidos P ON C.id = P.cliente_id GROUP BY C.nome;'. Se um cliente 'João' não tiver feito nenhum pedido, qual resultado será exibido para ele?",
+    "alternativa_a": "O cliente João será omitido do resultado por causa do agrupamento.",
+    "alternativa_b": "João aparecerá com o valor da contagem igual a 0, pois o COUNT(P.id) ignora os valores NULL gerados pelo LEFT JOIN.",
+    "alternativa_c": "João aparecerá com o valor da contagem igual a 1, pois o COUNT lera a linha gerada.",
+    "alternativa_d": "A consulta retornará um erro de incompatibilidade de nulos.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "Se aplicarmos uma cláusula WHERE restritiva sobre a tabela da direita após um LEFT JOIN (ex: 'FROM clientes C LEFT JOIN pedidos P ON C.id = P.cliente_id WHERE P.status = 'Ativo''), o que acontece com o comportamento da consulta?",
+    "alternativa_a": "A consulta mantém o comportamento de LEFT JOIN normalmente.",
+    "alternativa_b": "O LEFT JOIN é anulado e passa a se comportar logicamente como um INNER JOIN, pois as linhas com NULL na tabela da direita (clientes sem pedido) serão descartadas pelo WHERE já que NULL não atende à condição de igualdade.",
+    "alternativa_c": "O SGBD gera um erro forçando o uso de subqueries no WHERE.",
+    "alternativa_d": "A tabela da esquerda passa a retornar apenas valores nulos.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "O que caracteriza um NATURAL JOIN e por que seu uso é amplamente desaconselhado em ambientes de produção e desenvolvimento profissional?",
+    "alternativa_a": "Ele une tabelas baseado em critérios de inteligência artificial do banco, tornando-o muito lento.",
+    "alternativa_b": "Ele realiza a junção implicitamente baseando-se em TODAS as colunas que possuem nomes idênticos em ambas as tabelas. É perigoso porque qualquer alteração futura no nome de uma coluna ou adição de coluna nova pode quebrar a lógica da consulta silenciosamente.",
+    "alternativa_c": "Ele proíbe o uso de chaves estrangeiras na base de dados.",
+    "alternativa_d": "Ele só permite a leitura de arquivos físicos fora do banco.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 7,
+    "enunciado": "Em termos de Plano de Execução (Execution Plan), quais são os três principais algoritmos internos utilizados pelos motores dos SGBDs para realizar a operação física de um JOIN em memória ou disco?",
+    "alternativa_a": "Sequential Scan, Index Scan e Bitmap Scan.",
+    "alternativa_b": "Nested Loop Join, Hash Join e Sort-Merge Join.",
+    "alternativa_c": "B-Tree Join, GiST Join e BRIN Join.",
+    "alternativa_d": "Commit Join, Rollback Join e Savepoint Join.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "conceito_id": 8,
+    "enunciado": "O que é uma subquery (subconsulta) no contexto de um banco de dados relacional?",
+    "alternativa_a": "Uma consulta que é executada apenas quando o servidor de banco de dados é reiniciado.",
+    "alternativa_b": "Uma instrução SELECT aninhada dentro de outra consulta SQL maior.",
+    "alternativa_c": "Uma tabela temporária criada fisicamente no disco rígido do servidor.",
+    "alternativa_d": "Um comando utilizado exclusivamente para apagar chaves estrangeiras.",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Como é chamada uma subquery que retorna exatamente um único valor (uma única linha e uma única coluna), como o resultado de uma função MAX()?",
+    "alternativa_a": "Subquery Multilinha",
+    "alternativa_b": "Subquery Escalar",
+    "alternativa_c": "Subquery Correlacionada",
+    "alternativa_d": "Subquery Vetorial",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Ao escrever uma subquery dentro da cláusula WHERE de uma consulta principal, qual caractere ou delimitador deve obrigatoriamente envolver a subconsulta?",
+    "alternativa_a": "Chaves { }",
+    "alternativa_b": "Colchetes [ ]",
+    "alternativa_c": "Parênteses ( )",
+    "alternativa_d": "Aspas Duplas \" \"",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Qual das seguintes alternativas apresenta uma estrutura sintática válida de subquery na cláusula WHERE?",
+    "alternativa_a": "SELECT nome FROM produtos WHERE preco > SELECT AVG(preco) FROM produtos;",
+    "alternativa_b": "SELECT nome FROM produtos WHERE preco > (SELECT AVG(preco) FROM produtos);",
+    "alternativa_c": "SELECT nome FROM produtos WHERE preco > SUBQUERY(AVG(preco));",
+    "alternativa_d": "SELECT nome FROM produtos WHERE preco > [SELECT AVG(preco) FROM produtos];",
+    "resposta_correta": "B",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Em qual das seguintes cláusulas de uma instrução SELECT principal é permitido aninhar uma subquery?",
+    "alternativa_a": "Apenas na cláusula WHERE.",
+    "alternativa_b": "Apenas nas cláusulas WHERE e FROM.",
+    "alternativa_c": "Nas cláusulas SELECT, FROM, WHERE e HAVING.",
+    "alternativa_d": "Apenas na cláusula GROUP BY.",
+    "resposta_correta": "C",
+    "dificuldade": 1
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Se uma subquery colocada na cláusula WHERE retornar múltiplos valores (várias linhas contendo IDs de categorias), qual operador da consulta principal deve ser usado para receber esses valores sem causar erro?",
+    "alternativa_a": "O operador de igualdade simples (=).",
+    "alternativa_b": "O operador IN.",
+    "alternativa_c": "O operador LIKE.",
+    "alternativa_d": "O operador BETWEEN.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "O que acontece se uma subquery utilizada com um operador de comparação simples (como 'WHERE preco > (subquery)') retornar acidentalmente mais de uma linha na execução?",
+    "alternativa_a": "O SGBD seleciona automaticamente o primeiro valor retornado e ignora os outros.",
+    "alternativa_b": "O SGBD retorna um erro de execução informando que a subquery retornou mais de uma linha.",
+    "alternativa_c": "O SGBD soma todos os valores retornados pela subquery.",
+    "alternativa_d": "A consulta principal é cancelada e os dados da tabela são apagados.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Deseja-se encontrar todos os clientes da tabela 'clientes' que realizaram pelo menos um pedido na tabela 'pedidos'. Qual palavra-chave testa eficientemente a existência de registros na subquery sem precisar retornar dados reais de colunas?",
+    "alternativa_a": "EXISTS",
+    "alternativa_b": "HAVING",
+    "alternativa_c": "CONTAINS",
+    "alternativa_d": "MATCH",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Quando uma subquery é inserida diretamente dentro da cláusula FROM (ex: 'SELECT * FROM (SELECT id, nome FROM produtos) AS sub;'), qual regra gramatical do SQL deve ser obrigatoriamente seguida?",
+    "alternativa_a": "A subquery não pode conter filtros (WHERE).",
+    "alternativa_b": "A subquery deve receber obrigatoriamente um apelido (alias) para ser tratada como uma tabela derivada.",
+    "alternativa_c": "A subquery só pode selecionar colunas numéricas.",
+    "alternativa_d": "Não é permitido usar a cláusula FROM dentro de outra cláusula FROM.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "O que caracteriza uma Subquery Correlacionada?",
+    "alternativa_a": "É uma subquery que é executada apenas uma vez antes da consulta principal.",
+    "alternativa_b": "É uma subquery que depende de valores da consulta principal para sua execução, sendo avaliada repetidamente para cada linha processada pela consulta externa.",
+    "alternativa_c": "É uma subquery que une duas tabelas usando obrigatoriamente um NATURAL JOIN.",
+    "alternativa_d": "É uma subquery criada automaticamente pelo SGBD para fins de backup.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Considere a consulta: 'SELECT nome FROM funcionarios WHERE salario > ANY (SELECT salario FROM estagiarios);'. O que o operador ANY garante nesse cenário?",
+    "alternativa_a": "Que o funcionário será listado se seu salário for maior do que o salário de TODOS os estagiários da tabela.",
+    "alternativa_b": "Que o funcionário será listado se seu salário for maior do que pelo menos UM (qualquer um) dos salários dos estagiários.",
+    "alternativa_c": "Que o funcionário será listado apenas se seu salário for igual à média dos estagiários.",
+    "alternativa_d": "O operador ANY gerará um erro por ser inválido com subqueries.",
+    "resposta_correta": "B",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Qual comando utiliza uma subquery escalar de forma válida na lista de projeção do SELECT para exibir o nome do produto e, ao lado, a média geral de preços de todos os produtos da tabela?",
+    "alternativa_a": "SELECT nome, (SELECT AVG(preco) FROM produtos) AS media_global FROM produtos;",
+    "alternativa_b": "SELECT nome, AVG(preco) FROM produtos;",
+    "alternativa_c": "SELECT nome, SUBQUERY(AVG(preco)) FROM produtos;",
+    "alternativa_d": "SELECT nome FROM produtos WHERE preco = (SELECT AVG(preco) FROM produtos);",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Se você precisa listar os produtos cujo preço seja maior do que os preços de TODOS os itens da categoria 'Básicos', qual operador deve acompanhar a subquery?",
+    "alternativa_a": "WHERE preco > ALL (SELECT preco FROM produtos WHERE categoria = 'Básicos');",
+    "alternativa_b": "WHERE preco > ANY (SELECT preco FROM produtos WHERE categoria = 'Básicos');",
+    "alternativa_c": "WHERE preco > IN (SELECT preco FROM produtos WHERE categoria = 'Básicos');",
+    "alternativa_d": "WHERE preco > SOME (SELECT preco FROM produtos WHERE categoria = 'Básicos');",
+    "resposta_correta": "A",
+    "dificuldade": 2
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Análise a consulta correlacionada: 'SELECT nome FROM produtos p WHERE preco > (SELECT AVG(preco) FROM produtos WHERE categoria = p.categoria);'. O que essa instrução faz?",
+    "alternativa_a": "Seleciona os produtos que custam mais do que a média global de preço de toda a tabela.",
+    "alternativa_b": "Seleciona os produtos cujo preço é estritamente maior do que a média de preço da sua própria categoria específica.",
+    "alternativa_c": "Calcula a média de preço de todas as categorias e altera os valores dos produtos.",
+    "alternativa_d": "Retorna um erro, pois o alias 'p' da consulta externa não pode ser lido dentro da subquery.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Se uma subquery multilinha retornar um conjunto contendo um valor nulo (ex: 10, 20, NULL), qual será o comportamento da consulta principal ao usar o operador NOT IN (ex: 'WHERE id NOT IN (subquery)')?",
+    "alternativa_a": "O SQL ignorará o valor NULL e filtrará os IDs 10 e 20 normalmente.",
+    "alternativa_b": "A consulta principal não retornará nenhuma linha (resultado vazio), pois qualquer comparação lógica contra NULL resulta em UNKNOWN, invalidando a negação do NOT IN.",
+    "alternativa_c": "O SQL converterá o NULL para zero para efetuar a comparação.",
+    "alternativa_d": "A consulta falhará emitindo um erro de violação de integridade.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Qual é a principal vantagem de performance do operador EXISTS em relação ao operador IN quando aplicados a subqueries em grandes volumes de dados?",
+    "alternativa_a": "O EXISTS converte automaticamente a consulta em um índice físico.",
+    "alternativa_b": "O EXISTS interrompe o processamento da subquery assim que encontra a primeira correspondência (Short-Circuit), enquanto o IN pode forçar a subquery a processar e carregar todo o conjunto de dados na memória.",
+    "alternativa_c": "O IN só funciona com textos, tornando o EXISTS obrigatório para números.",
+    "alternativa_d": "Não há nenhuma vantagem, ambos possuem exatamente o mesmo plano de execução interno.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Considere o comando: 'SELECT departamento FROM projetos GROUP BY departamento HAVING SUM(orcamento) > (SELECT AVG(orcamento) FROM projetos);'. Qual é a regra de execução da subquery na cláusula HAVING?",
+    "alternativa_a": "Ela calcula a média geral de orçamento dos projetos da tabela para servir de parâmetro de comparação com a soma agregada de cada grupo do departamento.",
+    "alternativa_b": "Ela é inválida, pois o HAVING não aceita subqueries.",
+    "alternativa_c": "Ela agrupa os dados por projeto repetindo o fluxo do processo principal.",
+    "alternativa_d": "Ela zera o orçamento dos departamentos que não atingem a meta.",
+    "resposta_correta": "A",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Dada a técnica de otimização de consultas, muitas subqueries podem ser reescritas utilizando qual outra estrutura padrão do SQL para melhorar a eficiência e legibilidade?",
+    "alternativa_a": "Cláusulas WHERE compostas por múltiplos operadores LIKE.",
+    "alternativa_b": "Junções de tabelas (JOINs) ou Expressões de Tabela Comuns (CTEs - cláusula WITH).",
+    "alternativa_c": "Vários modificadores DISTINCT encadeados.",
+    "alternativa_d": "Ordenações complexas na cláusula ORDER BY.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "O que acontecerá ao executar a seguinte consulta: 'SELECT nome FROM clientes WHERE id = (SELECT cliente_id FROM pedidos WHERE total > 5000);', sabendo que existem 5 pedidos que superaram o valor de 5000?",
+    "alternativa_a": "A consulta retornará os 5 clientes normalmente.",
+    "alternativa_b": "A consulta falhará com erro de subquery multilinha, pois utilizou o operador '=' com uma subquery que retornou 5 registros (o correto seria usar o operador IN).",
+    "alternativa_c": "A consulta trará apenas o cliente correspondente ao primeiro pedido.",
+    "alternativa_d": "O banco de dados travará tentando adivinhar qual cliente escolher.",
+    "resposta_correta": "B",
+    "dificuldade": 3
+  },
+  {
+    "conceito_id": 8,
+    "enunciado": "Analise a instrução: 'SELECT nome FROM produtos WHERE preco > ALL (SELECT preco FROM produtos WHERE categoria = 'Premium');'. Se a categoria 'Premium' estiver completamente vazia (sem nenhum produto cadastrado), o que a consulta principal retornará?",
+    "alternativa_a": "Uma tabela vazia, pois não há parâmetros válidos para comparação.",
+    "alternativa_b": "Absolutamente todos os produtos da tabela, pois uma comparação contra um conjunto vazio usando o operador ALL retorna TRUE por definição lógica (vacuous truth).",
+    "alternativa_c": "Um erro de execução acusando subquery vazia.",
+    "alternativa_d": "Apenas os produtos que possuam o preço igual a zero.",
+    "resposta_correta": "B",
+    "dificuldade": 3
   }
 ]
