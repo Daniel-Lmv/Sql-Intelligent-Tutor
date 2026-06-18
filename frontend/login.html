@@ -1,0 +1,289 @@
+<!DOCTYPE html><html class="dark" lang="pt-BR" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>SQL Mastery HUD - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hud-glass {
+            background: rgba(18, 32, 50, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(140, 144, 159, 0.2);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(77, 142, 255, 0.3);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, rgba(173, 198, 255, 0.2), transparent);
+            position: absolute;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        .floating-node {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#010f20",
+                        "surface-container-highest": "#283648",
+                        "primary": "#adc6ff",
+                        "surface-dim": "#051425",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#001a42",
+                        "on-secondary-fixed": "#002113",
+                        "on-tertiary-fixed-variant": "#92002a",
+                        "tertiary-fixed-dim": "#ffb2b7",
+                        "surface-tint": "#adc6ff",
+                        "inverse-surface": "#d5e3fc",
+                        "outline": "#8c909f",
+                        "tertiary-container": "#ff516a",
+                        "on-secondary-container": "#00311f",
+                        "on-primary-container": "#00285d",
+                        "primary-fixed": "#d8e2ff",
+                        "secondary": "#4edea3",
+                        "secondary-fixed-dim": "#4edea3",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-primary": "#002e6a",
+                        "surface-variant": "#283648",
+                        "outline-variant": "#424754",
+                        "surface-bright": "#2c3a4d",
+                        "primary-container": "#4d8eff",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#0d1c2e",
+                        "surface": "#051425",
+                        "background": "#051425",
+                        "error-container": "#93000a",
+                        "surface-container": "#122032",
+                        "on-surface-variant": "#c2c6d6",
+                        "surface-container-high": "#1d2b3d",
+                        "secondary-container": "#00a572",
+                        "on-tertiary": "#67001b",
+                        "on-secondary-fixed-variant": "#005236",
+                        "primary-fixed-dim": "#adc6ff",
+                        "inverse-on-surface": "#233144",
+                        "tertiary": "#ffb2b7",
+                        "tertiary-fixed": "#ffdadb",
+                        "inverse-primary": "#005ac2",
+                        "on-tertiary-fixed": "#40000d",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#5b0017",
+                        "on-secondary": "#003824",
+                        "on-surface": "#d5e3fc",
+                        "on-background": "#d5e3fc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "20px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "container-max": "1200px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg": ["Inter"],
+                        "code-md": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "code-md": ["14px", {"lineHeight": "22px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex items-center justify-center overflow-hidden font-body-md selection:bg-primary/30">
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute top-10 left-10 opacity-20 floating-node" style="animation-delay: 0s;">
+<div class="font-code-md text-primary text-[10px] border border-outline-variant p-4 rounded-xl">
+                SELECT * FROM students<br>
+                WHERE skills &gt;= 'Master';
+            </div>
+</div>
+<div class="absolute bottom-20 right-10 opacity-10 floating-node" style="animation-delay: 2s;">
+<div class="w-48 h-48 border-2 border-dashed border-primary/30 rounded-full animate-spin-slow"></div>
+</div>
+<div class="absolute top-1/4 right-1/4 opacity-10 floating-node" style="animation-delay: 1s;">
+<span class="material-symbols-outlined text-[120px] text-secondary">database</span>
+</div>
+</div>
+<main class="relative z-10 w-full max-w-md px-gutter">
+<div class="hud-glass rounded-xl p-lg shadow-2xl relative overflow-hidden">
+<div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/50"></div>
+<div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/50"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/50"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/50"></div>
+<div class="scanline"></div>
+<div class="text-center mb-xl">
+<div class="inline-flex items-center justify-center space-x-2 mb-md">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SQL Mastery HUD</h1>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs">Bem-vindo de volta, futuro mestre de dados</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sua jornada rumo à maestria em SQL continua aqui.</p>
+</div>
+<form action="#" class="space-y-lg" onsubmit="return false;">
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-outline ml-1" for="identifier">E-MAIL<br></label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary transition-colors">person</span>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl py-md pl-12 pr-md text-on-surface placeholder:text-outline-variant focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all font-body-sm" id="identifier" placeholder="ex: mestre_sql@tech.com" type="text">
+</div>
+<div id="email-error" class="text-tertiary-container font-label-caps text-[11px] mt-1 ml-1 hidden flex items-center gap-1">
+    <span class="material-symbols-outlined text-[14px]">error</span>
+    <span>email não encontrado, tente novamente.</span>
+</div>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-center px-1">
+<label class="font-label-caps text-label-caps text-outline" for="password">SENHA</label>
+<a class="font-label-caps text-[10px] text-primary hover:text-primary-container transition-colors" href="#">ESQUECI MINHA SENHA</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl py-md pl-12 pr-md text-on-surface placeholder:text-outline-variant focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all font-body-sm" id="password" placeholder="••••••••" type="password">
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-outline-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility_off</span>
+</button>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md text-headline-md py-md rounded-xl font-bold shadow-lg shadow-primary/20 hover:bg-primary transition-all transform active:scale-[0.98] glow-hover group flex items-center justify-center gap-2" type="submit">
+<span class="">Entrar na Jornada</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">bolt</span>
+</button>
+<div class="flex items-center space-x-4 py-md">
+<div class="flex-1 h-px bg-outline-variant/30"></div>
+<div class="flex-1 h-px bg-outline-variant/30"></div>
+</div>
+</form>
+<div class="mt-xl text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Novo por aqui? 
+                    <a class="text-secondary font-bold hover:underline decoration-secondary/30 underline-offset-4" href="#">Criar uma conta</a>
+</p>
+</div>
+</div>
+</main>
+
+<script>
+    // 1. Elementos da Interface
+    const loginForm = document.querySelector('form');
+    const emailInput = document.getElementById('identifier');
+    const errorBox = document.getElementById('email-error'); // Referência da nova div de erro
+    const submitBtn = document.querySelector('button[type="submit"]');
+    const submitBtnText = submitBtn.querySelector('span');
+
+    // URL base da nossa API FastAPI
+    const API_BASE_URL = 'http://127.0.0.1:8000';
+
+    // Limpa o erro visual assim que o usuário volta a digitar no campo de e-mail
+    emailInput.addEventListener('input', () => {
+        errorBox.classList.add('hidden');
+        emailInput.classList.remove('border-tertiary-container', 'focus:ring-tertiary-container/50');
+    });
+
+    // 2. Evento de Submit do Formulário
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); 
+
+        const emailValue = emailInput.value.trim();
+
+        if (!emailValue) {
+            errorBox.querySelector('span:last-child').textContent = 'Por favor, insira seu e-mail.';
+            errorBox.classList.remove('hidden');
+            return;
+        }
+
+        // Estado de "Carregando" no botão do HUD
+        submitBtn.disabled = true;
+        submitBtnText.textContent = 'Autenticando...';
+        submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        errorBox.classList.add('hidden'); // Oculta erros anteriores
+
+        try {
+            // Chamando a API do nosso backend
+            const response = await fetch(`${API_BASE_URL}/auth/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: emailValue })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.detail || 'Erro ao autenticar.');
+            }
+
+            // Sucesso! Salvando os dados essenciais na memória do navegador (LocalStorage)
+            localStorage.setItem('user_id', data.user_id);
+            localStorage.setItem('user_email', data.email);
+
+            // Redireciona diretamente para a dashboard sem popups irritantes!
+            window.location.href = 'dashboard.html';
+
+        } catch (error) {
+            // Trata o erro diretamente na interface embaixo do e-mail
+            errorBox.querySelector('span:last-child').textContent = 'email não encontrado, tente novamente.';
+            errorBox.classList.remove('hidden');
+            // Deixa a borda do input avermelhada usando a cor correspondente do tema (tertiary-container)
+            emailInput.classList.add('border-tertiary-container', 'focus:ring-tertiary-container/50');
+        } finally {
+            // Restaura o botão ao estado original
+            submitBtn.disabled = false;
+            submitBtnText.textContent = 'Entrar na Jornada';
+            submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+    });
+
+    // Alternar visibilidade da senha
+    const togglePass = document.querySelector('button[type="button"] span');
+    const passInput = document.getElementById('password');
+    togglePass.parentElement.addEventListener('click', () => {
+        if (passInput.type === 'password') {
+            passInput.type = 'text';
+            togglePass.textContent = 'visibility';
+        } else {
+            passInput.type = 'password';
+            togglePass.textContent = 'visibility_off';
+        }
+    });
+</script>
+</body></html>
