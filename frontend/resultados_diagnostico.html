@@ -1,0 +1,270 @@
+<!DOCTYPE html><html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>SQL Tutor - Análise de Resultados</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#00311f",
+                    "on-surface-variant": "#c2c6d6",
+                    "on-primary-fixed": "#001a42",
+                    "inverse-on-surface": "#233144",
+                    "surface": "#051425",
+                    "surface-bright": "#2c3a4d",
+                    "inverse-surface": "#d5e3fc",
+                    "tertiary-container": "#ff516a",
+                    "surface-container": "#122032",
+                    "surface-container-lowest": "#010f20",
+                    "on-tertiary-container": "#5b0017",
+                    "surface-container-highest": "#283648",
+                    "error": "#ffb4ab",
+                    "tertiary": "#ffb2b7",
+                    "surface-tint": "#adc6ff",
+                    "on-tertiary": "#67001b",
+                    "on-tertiary-fixed": "#40000d",
+                    "on-secondary-fixed-variant": "#005236",
+                    "secondary-container": "#00a572",
+                    "on-background": "#d5e3fc",
+                    "on-surface": "#d5e3fc",
+                    "inverse-primary": "#005ac2",
+                    "on-secondary-fixed": "#002113",
+                    "background": "#051425",
+                    "outline": "#8c909f",
+                    "secondary-fixed-dim": "#4edea3",
+                    "surface-dim": "#051425",
+                    "primary-fixed": "#d8e2ff",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#424754",
+                    "primary": "#adc6ff",
+                    "on-primary": "#002e6a",
+                    "secondary": "#4edea3",
+                    "on-tertiary-fixed-variant": "#92002a",
+                    "on-primary-container": "#00285d",
+                    "primary-fixed-dim": "#adc6ff",
+                    "on-primary-fixed-variant": "#004395",
+                    "tertiary-fixed-dim": "#ffb2b7",
+                    "tertiary-fixed": "#ffdadb",
+                    "surface-container-high": "#1d2b3d",
+                    "surface-container-low": "#0d1c2e",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "on-secondary": "#003824",
+                    "primary-container": "#4d8eff",
+                    "secondary-fixed": "#6ffbbe",
+                    "surface-variant": "#283648"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "sm": "8px",
+                    "container-max": "1200px",
+                    "lg": "24px",
+                    "unit": "4px",
+                    "md": "16px",
+                    "gutter": "20px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-caps": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "code-md": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "code-md": ["14px", {"lineHeight": "22px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hud-glow {
+            box-shadow: 0 0 40px -10px rgba(78, 222, 163, 0.15);
+        }
+        .neon-text-glow {
+            text-shadow: 0 0 10px rgba(78, 222, 163, 0.4);
+        }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.8s ease-in-out;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col items-center selection:bg-secondary/30">
+
+<header class="bg-surface backdrop-blur-xl shadow-sm flex justify-between items-center px-md py-sm w-full z-50 fixed top-0 h-16">
+    <div class="flex items-center gap-md">
+        <span class="font-headline-md text-headline-md font-bold text-secondary tracking-tight text-headline-lg">SQL Tutor</span>
+    </div>
+</header>
+
+<main class="flex-grow flex items-center justify-center w-full px-gutter pt-20 pb-12 max-w-container-max">
+    <div class="w-full max-w-2xl bg-surface-container border border-outline-variant/30 rounded-xl p-xl hud-glow relative overflow-hidden mx-auto">
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-secondary/5 rounded-full blur-[80px]"></div>
+        <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/5 rounded-full blur-[80px]"></div>
+        
+        <div class="relative z-10 space-y-lg text-center pt-md">
+            <h1 class="font-headline-lg text-headline-lg text-secondary neon-text-glow uppercase tracking-wider">
+                Análise de Resultados
+            </h1>
+
+            <div class="flex flex-col items-center justify-center py-md">
+                <div class="relative w-48 h-48 mb-md">
+                    <svg class="w-full h-full">
+                        <circle class="text-surface-container-highest" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="8"></circle>
+                        <circle id="progress-circle" class="text-secondary progress-ring-circle" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-linecap="round" stroke-width="8" stroke-dasharray="552.92" stroke-dashoffset="552.92"></circle>
+                    </svg>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                        <span id="percentage-label" class="font-headline-lg text-headline-lg text-on-surface font-bold">0%</span>
+                        <span class="font-label-caps text-label-caps text-on-surface-variant">Média Geral</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center mt-md">
+                    <span id="score-label" class="font-headline-md text-headline-md text-secondary neon-text-glow font-bold text-headline-lg">...</span>
+                    <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Conceitos Mapeados</span>
+                </div>
+            </div>
+
+            <div class="py-md mt-lg">
+                <p id="summary-text" class="font-body-md text-body-md text-on-surface-variant max-w-lg mx-auto leading-relaxed">
+                    Analisando dados conceituais da sua base SQLite...
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-md pt-lg mt-md">
+                <button id="btn-trilha" class="flex-1 bg-secondary hover:bg-secondary-fixed-dim text-on-secondary-container font-headline-md text-headline-md py-md px-lg rounded-xl transition-all duration-200 active:scale-95 shadow-[0_0_20px_-5px_rgba(78,222,163,0.4)]">
+                    Ir para a Minha Trilha
+                </button>
+                <button id="btn-retake" class="flex-1 border border-outline hover:border-secondary hover:text-secondary text-on-surface-variant font-headline-md text-headline-md py-md px-lg rounded-xl transition-all duration-200 active:scale-95">
+                    Refazer Teste
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="fixed top-20 left-10 pointer-events-none opacity-20">
+    <div class="w-1 h-1 bg-secondary rounded-full shadow-[0_0_8px_2px_#4edea3] animate-pulse"></div>
+</div>
+<div class="fixed bottom-20 right-10 pointer-events-none opacity-20">
+    <div class="w-1 h-1 bg-primary rounded-full shadow-[0_0_8px_2px_#adc6ff] animate-pulse"></div>
+</div>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        // Recupera o payload calculado que salvamos temporariamente no sessionStorage
+        const resultData = JSON.parse(sessionStorage.getItem('last_diagnostic_result'));
+        
+        if (!resultData || !resultData.proficiencia_calculada) {
+            // Fallback caso acesse direto sem fazer o teste
+            document.getElementById('summary-text').textContent = "Nenhum dado de diagnóstico recente encontrado. Por favor, realize o teste.";
+            return;
+        }
+
+        const proficiencia = resultData.proficiencia_calculada;
+        
+        // Dicionário de conceitos do sistema para construir a análise textual
+        const nomeConceitos = {
+            "1": "SELECT & Filtros",
+            "2": "Operadores & Nulos",
+            "3": "Agregação",
+            "4": "GROUP BY",
+            "5": "Cláusula HAVING",
+            "6": "INNER JOIN",
+            "7": "LEFT JOIN",
+            "8": "Subqueries"
+        };
+
+        // Calcula a média das notas de proficiência retornadas pelo backend híbrido
+        let totalScore = 0;
+        let count = 0;
+        let fortes = [];
+        let fracos = [];
+
+        for (let id in proficiencia) {
+            let nota = proficiencia[id];
+            totalScore += nota;
+            count++;
+
+            let nome = nomeConceitos[id] || `Conceito ${id}`;
+            if (nota >= 70) {
+                fortes.push(nome);
+            } else {
+                fracos.push(nome);
+            }
+        }
+
+        const mediaGeral = count > 0 ? Math.round(totalScore / count) : 0;
+
+        // Atualiza os elementos de texto do HUD
+        document.getElementById('percentage-label').textContent = `${mediaGeral}%`;
+        document.getElementById('score-label').textContent = `${count} de ${count}`;
+
+        // Constrói o texto adaptativo baseado nos arrays dinâmicos
+        let textoFinal = "Você concluiu seu mapeamento. ";
+        if (fortes.length > 0) {
+            textoFinal += `Você demonstrou uma base sólida em <span class="text-secondary font-semibold">${fortes.slice(0, 2).join(' e ')}</span>. `;
+        }
+        if (fracos.length > 0) {
+            textoFinal += `Para maximizar sua evolução, sua trilha focará na otimização de <span class="text-primary font-semibold">${fracos.slice(0, 2).join(' e ')}</span>.`;
+        } else {
+            textoFinal += "Excelente performance em todas as frentes avaliadas!";
+        }
+        document.getElementById('summary-text').innerHTML = textoFinal;
+
+        // Animação fluida do anel de progresso SVG
+        const circle = document.getElementById('progress-circle');
+        if (circle) {
+            const radius = circle.r.baseVal.value;
+            const circumference = radius * 2 * Math.PI;
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            
+            const offset = circumference - (mediaGeral / 100 * circumference);
+            setTimeout(() => {
+                circle.style.strokeDashoffset = offset;
+            }, 150);
+        }
+
+        // Ações dos botões
+        document.getElementById('btn-trilha').addEventListener('click', () => {
+            window.location.href = 'dashboard.html';
+        });
+
+        document.getElementById('btn-retake').addEventListener('click', () => {
+            sessionStorage.removeItem('last_diagnostic_result');
+            window.location.href = 'questoes_diagnostico.html';
+        });
+    });
+
+    // Animação de micro-interação nos CTAs
+    document.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('mouseenter', () => btn.style.transform = 'translateY(-2px)');
+        btn.addEventListener('mouseleave', () => btn.style.transform = 'translateY(0px)');
+    });
+</script>
+</body></html>

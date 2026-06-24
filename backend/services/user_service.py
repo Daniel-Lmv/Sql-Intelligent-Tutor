@@ -1,9 +1,7 @@
-# backend/services/user_service.py
 import sqlite3
 from pathlib import Path
 
 # Ajustado para buscar exatamente o "its.db" na mesma pasta onde o banco for gerado
-# Se o seu arquivo de banco fica na pasta "database", usamos o .parent correspondente.
 DB_PATH = Path(__file__).resolve().parent.parent / "database" / "its.db"
 
 class UserService:
@@ -23,7 +21,7 @@ class UserService:
         conn = UserService.get_connection()
         cursor = conn.cursor()
 
-        # 1. Busca o usuário pelo e-mail (usando a tabela 'usuarios' que você criou)
+        # 1. Busca o usuário pelo e-mail
         cursor.execute("""
             SELECT id, nome, email 
             FROM usuarios 
@@ -45,18 +43,25 @@ class UserService:
             WHERE usuario_id = ?
         """, (user_id,))
         
-        has_proficiency = cursor.fetchone()["total"] > 0
+        # CORRIGIDO: Adicionado () após o fetchone
+        row_total = cursor.fetchone()
+        has_proficiency = row_total["total"] > 0 if row_total else False
 
         conn.close()
 
+        diagnostico_concluido = has_proficiency
+
         return {
             "status": "success",
+            "user_id": user_id,  
+            "email": user_row["email"],
             "user": {
                 "id": user_id,
                 "nome": user_row["nome"],
                 "email": user_row["email"]
             },
-            "precisa_diagnostico": not has_proficiency
+            "precisa_diagnostico": not diagnostico_concluido,
+            "diagnostico_concluido": diagnostico_concluido  
         }
 
     @staticmethod
@@ -105,5 +110,6 @@ class UserService:
 
         return {
             "user_id": user_id,
+            "diagnostico_concluido": len(proficiencias) > 0, # Auxiliar informativo para rotas GET
             "progresso": progresso_grafo
         }

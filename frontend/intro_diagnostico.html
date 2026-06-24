@@ -1,0 +1,265 @@
+<!DOCTYPE html><html class="dark" lang="pt-br" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#4edea3",
+                    "surface-container-low": "#0d1c2e",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#adc6ff",
+                    "on-error": "#690005",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-tertiary-container": "#5b0017",
+                    "surface-bright": "#2c3a4d",
+                    "outline-variant": "#424754",
+                    "inverse-surface": "#d5e3fc",
+                    "error-container": "#93000a",
+                    "on-secondary": "#003824",
+                    "on-tertiary": "#67001b",
+                    "on-secondary-container": "#00311f",
+                    "inverse-on-surface": "#233144",
+                    "primary-fixed-dim": "#adc6ff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-primary-container": "#00285d",
+                    "secondary": "#4edea3",
+                    "on-tertiary-fixed": "#40000d",
+                    "surface-container": "#122032",
+                    "tertiary": "#ffb2b7",
+                    "outline": "#8c909f",
+                    "on-secondary-fixed": "#002113",
+                    "on-tertiary-fixed-variant": "#92002a",
+                    "surface-container-high": "#1d2b3d",
+                    "tertiary-fixed-dim": "#ffb2b7",
+                    "surface-variant": "#283648",
+                    "secondary-container": "#00a572",
+                    "on-primary-fixed-variant": "#004395",
+                    "on-primary-fixed": "#001a42",
+                    "tertiary-fixed": "#ffdadb",
+                    "surface-container-lowest": "#010f20",
+                    "tertiary-container": "#ff516a",
+                    "surface-container-highest": "#283648",
+                    "on-background": "#d5e3fc",
+                    "primary-container": "#4d8eff",
+                    "on-primary": "#002e6a",
+                    "background": "#051425",
+                    "surface-dim": "#051425",
+                    "primary-fixed": "#d8e2ff",
+                    "surface": "#051425",
+                    "on-error-container": "#ffdad6",
+                    "primary": "#adc6ff",
+                    "on-surface": "#d5e3fc",
+                    "on-surface-variant": "#c2c6d6",
+                    "inverse-primary": "#005ac2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "unit": "4px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "gutter": "20px",
+                    "container-max": "1200px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "code-md": ["JetBrains Mono"],
+                    "headline-lg": ["Inter"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "code-md": ["14px", {"lineHeight": "22px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .neon-aura {
+            box-shadow: 0 0 40px -10px rgba(78, 222, 163, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md overflow-x-hidden selection:bg-secondary/30 selection:text-secondary">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full flex justify-between items-center px-gutter py-md bg-surface/80 backdrop-blur-xl z-50 border-b border-outline-variant/30">
+<div class="flex items-center gap-sm">
+<span class="font-headline-md text-headline-md font-bold text-primary">SQL Tutor</span>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+
+</nav>
+
+</header>
+<!-- Background Atmospheric Effect -->
+<div class="fixed inset-0 pointer-events-none z-0">
+
+<div class="absolute inset-0 scanline"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 flex items-center justify-center min-h-screen px-gutter pt-24 pb-12">
+<!-- Central Diagnostic Card -->
+<div class="max-w-[720px] w-full bg-surface-container/60 backdrop-blur-2xl border border-outline-variant/50 rounded-xl p-xl md:p-[64px] flex flex-col items-center text-center neon-aura terminal-flicker relative overflow-hidden" style="opacity: 1; transform: translateY(0px); transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);">
+<!-- Tech Detail Elements -->
+<div class="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-secondary/40 rounded-tl-xl pointer-events-none"></div>
+<div class="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-secondary/40 rounded-br-xl pointer-events-none"></div>
+<!-- 1. Striking Neon Icon -->
+<div class="relative mb-lg group">
+<div class="absolute inset-0 bg-secondary/20 blur-2xl rounded-full scale-125"></div>
+<div class="relative w-24 h-24 md:w-32 md:h-32 bg-surface-container-high rounded-full border-2 border-secondary/60 flex items-center justify-center group-hover:border-secondary transition-colors duration-500">
+<span class="material-symbols-outlined text-[48px] md:text-[64px] text-secondary" data-icon="psychology" style="font-variation-settings: &quot;FILL&quot; 1;">psychology</span>
+</div>
+<!-- Orbiting Tech Elements -->
+<div class="absolute -top-2 -right-2 w-6 h-6 bg-primary rounded-sm rotate-45 border border-on-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-on-primary-container" data-icon="bolt">bolt</span>
+</div>
+</div>
+<!-- 2. Title -->
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-md">
+                Minha Verificação de Conhecimentos
+            </h1>
+<!-- 3. Description -->
+<p class="font-body-md text-on-surface-variant max-w-[580px] mb-xl leading-relaxed">
+                Minha Verificação de Conhecimentos usa <span class="text-secondary font-bold">Inteligência Artificial (IA)</span> avançada para avaliar seu conhecimento e habilidades em todos os tópicos do curso. 
+                <br><br>
+                Seus resultados podem ajudá-lo a decidir como navegar pelo curso. Você pode optar por passar mais tempo em áreas em que precisa de um foco adicional ou ir mais rápido nas áreas em que já possui um forte entendimento.
+            </p>
+<!-- 4. Actions -->
+<div class="flex flex-col sm:flex-row items-center gap-md w-full sm:w-auto">
+<!-- Primary Action -->
+<button class="group relative px-xl py-md bg-secondary text-on-secondary font-bold rounded-lg flex items-center gap-sm hover:bg-secondary-fixed transition-all duration-300 active:scale-95 shadow-[0_0_20px_rgba(78,222,163,0.3)]">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: &quot;FILL&quot; 1;">play_arrow</span>
+<span class="font-label-caps text-label-caps">Iniciar Avaliação</span>
+<div class="absolute inset-0 border-2 border-secondary rounded-lg scale-100 group-hover:scale-110 opacity-0 group-hover:opacity-20 transition-all duration-300"></div>
+</button>
+<!-- Secondary Action -->
+<button class="px-xl py-md text-on-surface-variant font-label-caps text-label-caps hover:text-on-surface transition-all duration-200 hover:bg-surface-variant/30 rounded-lg active:scale-95">
+                    Pular e ir para a Trilha
+                </button>
+</div>
+<!-- Terminal Decorum -->
+
+</div>
+</main>
+<!-- Bottom Decorative HUD Stats -->
+
+<script>
+    // 1. Elementos da Interface e Configurações (CORRIGIDO E UNIFICADO)
+    const container = document.querySelector('main > div');
+    const API_BASE_URL = 'http://127.0.0.1:8000';
+    const userId = localStorage.getItem('user_id');
+
+    // Seleção direta e limpa pelos índices dos botões da página
+    const primaryButton = document.querySelectorAll('main button')[0];
+    const secondaryButton = document.querySelectorAll('main button')[1];
+
+    // 2. Trava de Segurança: Verifica o estado do aluno assim que a página carrega
+    window.addEventListener('DOMContentLoaded', async () => {
+        // Se não houver usuário logado no localStorage, devolve ele para o login
+        if (!userId) {
+            window.location.href = 'login.html';
+            return;
+        }
+
+        // Configuração inicial da animação nativa
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(20px)';
+
+        try {
+            // Consulta o backend para saber se o aluno já possui proficiência calculada
+            const response = await fetch(`${API_BASE_URL}/auth/progresso/${userId}`);
+            
+            if (response.ok) {
+                const progresso = await response.json();
+                
+                // CORREÇÃO LOGICA: Seu service unificado retorna 'diagnostico_concluido'
+                if (progresso.diagnostico_concluido === true) {
+                    window.location.href = 'dashboard.html';
+                    return; 
+                }
+            }
+        } catch (error) {
+            console.error('Erro ao validar progresso do aluno no backend:', error);
+        }
+
+        // Se passou pela validação (é a primeira vez), exibe a tela animada
+        setTimeout(() => {
+            container.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
+            container.style.opacity = '1';
+            container.style.transform = 'translateY(0)';
+        }, 100);
+    });
+
+    // 3. Ação: Iniciar Avaliação
+    if (primaryButton) {
+        primaryButton.addEventListener('click', () => {
+            // Redireciona para a página que vai renderizar as questões do diagnóstico
+            window.location.href = 'questoes_diagnostico.html'; 
+        });
+    }
+
+    // 4. Ação: Pular e ir para a Trilha (Caso decida simular ou criar a rota depois)
+    if (secondaryButton) {
+        secondaryButton.addEventListener('click', async () => {
+            secondaryButton.disabled = true;
+            secondaryButton.textContent = 'Processando...';
+
+            try {
+                // Como é um protótipo focado no fluxo simplificado, podemos pular direto para a dashboard
+                // Caso decida criar a rota '/auth/atualizar-estado' no FastAPI futuramente, remova o comentário abaixo:
+                /*
+                const response = await fetch(`${API_BASE_URL}/auth/atualizar-estado`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ user_id: parseInt(userId), novo_estado: 'trilha' })
+                });
+                if (!response.ok) throw new Error('Erro no servidor');
+                */
+
+                window.location.href = 'dashboard.html';
+
+            } catch (error) {
+                alert(`Erro ao pular diagnóstico: ${error.message}`);
+                secondaryButton.disabled = false;
+                secondaryButton.textContent = 'Pular e ir para a Trilha';
+            }
+        });
+    }
+
+    // Micro-interação original de rastreio do mouse (Mantida)
+    document.addEventListener('mousemove', (e) => {
+        if (!container) return;
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+    });
+</script>
+
+
+</body></html>

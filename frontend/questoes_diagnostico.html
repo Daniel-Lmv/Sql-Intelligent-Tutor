@@ -1,0 +1,336 @@
+<!DOCTYPE html><html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>SQL Mastery HUD - Diagnóstico</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hud-glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(18, 32, 50, 0.7);
+            border: 1px solid rgba(140, 144, 159, 0.2);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#283648",
+                        "tertiary-container": "#ff516a",
+                        "on-error": "#690005",
+                        "on-primary-container": "#00285d",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-secondary-fixed-variant": "#005236",
+                        "inverse-on-surface": "#233144",
+                        "inverse-primary": "#005ac2",
+                        "tertiary": "#ffb2b7",
+                        "on-tertiary-fixed-variant": "#92002a",
+                        "surface-tint": "#adc6ff",
+                        "tertiary-fixed-dim": "#ffb2b7",
+                        "outline-variant": "#424754",
+                        "surface": "#051425",
+                        "surface-container-lowest": "#010f20",
+                        "surface-dim": "#051425",
+                        "background": "#051425",
+                        "on-surface": "#d5e3fc",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#6ffbbe",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#283648",
+                        "surface-container-low": "#0d1c2e",
+                        "error-container": "#93000a",
+                        "on-surface-variant": "#c2c6d6",
+                        "secondary-container": "#00a572",
+                        "on-secondary": "#003824",
+                        "on-tertiary-container": "#5b0017",
+                        "primary-container": "#4d8eff",
+                        "surface-container": "#122032",
+                        "on-tertiary-fixed": "#40000d",
+                        "tertiary-fixed": "#ffdadb",
+                        "secondary": "#4edea3",
+                        "primary-fixed": "#d8e2ff",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-secondary-container": "#00311f",
+                        "surface-container-high": "#1d2b3d",
+                        "inverse-surface": "#d5e3fc",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-tertiary": "#67001b",
+                        "on-background": "#d5e3fc",
+                        "on-primary-fixed": "#001a42",
+                        "on-primary": "#002e6a",
+                        "surface-bright": "#2c3a4d",
+                        "primary": "#adc6ff",
+                        "outline": "#8c909f",
+                        "on-secondary-fixed": "#002113"
+                    },
+                    "fontFamily": {
+                        "code-md": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-caps": ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen overflow-x-hidden selection:bg-primary/30">
+
+<main class="relative z-10 flex flex-col items-center justify-center min-h-screen p-[20px] container mx-auto max-w-[1200px]">
+    
+    <header class="w-full max-w-3xl mb-6">
+        <div class="flex justify-between items-end mb-2 px-1">
+            <div class="flex flex-col">
+                <span class="font-label-caps text-[12px] text-primary tracking-widest uppercase">VERIFICAÇÃO DE CONHECIMENTO</span>
+                <h2 id="quiz-question-counter" class="font-headline-md text-[20px] text-on-surface">Carregando avaliação...</h2>
+            </div>
+            <div id="quiz-tag-container"></div>
+        </div>
+        <div class="h-3 w-full bg-surface-container rounded-full overflow-hidden border border-outline-variant/30 hud-glow">
+            <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-500 ease-out shadow-[0_0_10px_rgba(173,198,255,0.5)]" style="width: 0%;"></div>
+        </div>
+    </header>
+
+    <section class="w-full max-w-3xl glass-panel rounded-xl p-6 flex flex-col gap-6 transition-all duration-500">
+        <div class="space-y-4">
+            <h1 id="quiz-question-title" class="font-headline-md text-[20px] leading-relaxed text-on-surface">
+                 Carregando enunciado...
+            </h1>
+        </div>
+
+        <div id="quiz-code-box" class="bg-surface-container-lowest rounded-lg p-4 border border-outline-variant/20 font-code-md text-[14px] text-on-surface-variant flex gap-4 items-start overflow-x-auto">
+            <div class="opacity-30 select-none text-right">1<br>2<br>3<br>4</div>
+            <pre id="quiz-code-snippet" class="whitespace-pre font-sans text-on-surface">SELECT * FROM ...</pre>
+        </div>
+
+        <div id="quiz-options-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+             </div>
+    </section>
+
+    <footer class="w-full max-w-3xl mt-6 flex justify-between items-center">
+        <p id="error-alert" class="text-tertiary-container font-label-caps text-[12px] hidden flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">error</span> Selecione uma alternativa para prosseguir.
+        </p>
+        <div class="ml-auto">
+            <button id="next-btn" class="group relative px-8 py-3 bg-primary text-on-primary font-headline-md text-[16px] font-bold rounded-full overflow-hidden transition-all hover:shadow-[0_0_25px_rgba(173,198,255,0.4)] active:scale-95 flex items-center gap-2" disabled>
+                <span id="next-btn-text">Carregando...</span>
+                <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+            </button>
+        </div>
+    </footer>
+</main>
+
+<script>
+    // 1. Configurações de API & Sessão Local
+    const API_BASE_URL = 'http://127.0.0.1:8000';
+    const userId = localStorage.getItem('user_id');
+
+    // Estado Global do Quiz Reativo
+    let questionsList = []; 
+    let currentQuestionIndex = 0;
+    let selectedOption = null;
+    const userAnswers = []; 
+
+    // Elementos do DOM mapeados
+    const counterEl = document.getElementById('quiz-question-counter');
+    const badgeEl = document.getElementById('quiz-topic-badge');
+    const titleEl = document.getElementById('quiz-question-title');
+    const codeSnippetEl = document.getElementById('quiz-code-snippet');
+    const optionsContainer = document.getElementById('quiz-options-container');
+    const progressBar = document.getElementById('quiz-progress-bar');
+    const nextBtn = document.getElementById('next-btn');
+    const nextBtnText = document.getElementById('next-btn-text');
+    const errorAlert = document.getElementById('error-alert');
+
+    // 2. Carregar Questões vindas diretamente do Banco via Backend
+    async function carregarQuestoesDoBanco() {
+        try {
+            // Requisição para o endpoint dinâmico /questions das suas rotas
+            const response = await fetch(`${API_BASE_URL}/diagnostic/questions`);
+            if (!response.ok) { 
+                throw new Error("Não foi possível sincronizar o banco de questões.");
+            }
+            
+            questionsList = await response.json();
+
+            if (questionsList.length === 0) {
+                throw new Error("Nenhuma questão foi retornada pelo banco de dados.");
+            }
+
+            // Ativa o fluxo do questionário e renderiza a primeira questão
+            nextBtn.disabled = false;
+            renderQuestion();
+
+        } catch (error) {
+            titleEl.textContent = "Falha no Carregamento Teclado HUD";
+            codeSnippetEl.textContent = `Erro crítico: ${error.message}\nVerifique se o backend está rodando em ${API_BASE_URL}`;
+            counterEl.textContent = "ERROR 500";
+        }
+    }
+
+    // 3. Renderização Dinâmica da Questão
+    function renderQuestion() {
+        selectedOption = null;
+        errorAlert.classList.add('hidden');
+
+        const q = questionsList[currentQuestionIndex];
+
+        // Atualização reativa de interface baseada nos dados do SQLite
+        counterEl.textContent = `Questão ${currentQuestionIndex + 1} de ${questionsList.length}`;
+        
+        // Mapeia rótulos visuais amigáveis se necessário ou exibe o ID do conceito
+        titleEl.textContent = q.enunciado;
+        
+        // Se sua tabela não salvar snippet de código estruturado, use uma convenção ou remova o bloco visual
+        const codeBox = document.getElementById('quiz-code-box');
+
+        if (q.code) {
+            codeBox.classList.remove('hidden');
+            codeSnippetEl.textContent = q.code;
+        } else {
+            // Se não veio código do banco, esconde o bloco preto da tela
+            codeBox.classList.add('hidden');
+        }
+
+        // Atualização síncrona da barra HUD
+        const progressPercent = (currentQuestionIndex / questionsList.length) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+
+        // Modificação de contexto do CTA
+        if (currentQuestionIndex === questionsList.length - 1) {
+            nextBtnText.textContent = "Finalizar Avaliação";
+        } else {
+            nextBtnText.textContent = "Próxima";
+        }
+
+        // Limpeza de buffer e injeção do dicionário de alternativas mapeadas no service
+        optionsContainer.innerHTML = '';
+        
+        // Loop seguro sobre o objeto "alternativas" enviado pelo seu FastAPI
+        const keys = ["A", "B", "C", "D"];
+        keys.forEach(key => {
+            const text = q.alternativas ? q.alternativas[key] : "";
+            if (!text) return;
+
+            const btn = document.createElement('button');
+            btn.className = "group flex items-center justify-between p-4 rounded-lg border border-outline-variant hover:border-primary hover:bg-primary/5 transition-all active:scale-[0.98] text-left w-full bg-surface-container-low/40";
+            btn.setAttribute('data-option', key);
+            
+            btn.innerHTML = `
+                <div class="flex items-center gap-4">
+                    <span class="w-8 h-8 flex items-center justify-center rounded bg-surface-container border border-outline-variant group-hover:border-primary group-hover:text-primary transition-colors font-code-md">${key}</span>
+                    <span class="font-body-md text-on-surface-variant group-hover:text-on-surface whitespace-pre-line">${text}</span>
+                </div>
+                <span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity">radio_button_unchecked</span>
+            `;
+
+            btn.addEventListener('click', () => selectOption(btn, key));
+            optionsContainer.appendChild(btn);
+        });
+    }
+
+    // 4. Lógica Visual de Seleção Ativa
+    function selectOption(clickedBtn, optionKey) {
+        selectedOption = optionKey;
+        errorAlert.classList.add('hidden');
+
+        const allButtons = optionsContainer.querySelectorAll('button');
+        allButtons.forEach(btn => {
+            btn.classList.remove('border-primary', 'bg-primary/10');
+            const icon = btn.querySelector('.material-symbols-outlined');
+            if (icon) {
+                icon.innerText = 'radio_button_unchecked';
+                icon.classList.add('opacity-30');
+            }
+        });
+
+        clickedBtn.classList.add('border-primary', 'bg-primary/10');
+        const activeIcon = clickedBtn.querySelector('.material-symbols-outlined');
+        if (activeIcon) {
+            activeIcon.innerText = 'radio_button_checked';
+            activeIcon.classList.remove('opacity-30');
+        }
+    }
+
+    // 5. Paginação e Gatilho do Endpoint de Processamento
+    nextBtn.addEventListener('click', async () => {
+        if (!selectedOption) {
+            errorAlert.classList.remove('hidden');
+            return;
+        }
+
+        // Adiciona a resposta selecionada mapeando com o ID real guardado no SQLite
+        userAnswers.push({
+            question_id: questionsList[currentQuestionIndex].id,
+            selected_option: selectedOption
+        });
+
+        if (currentQuestionIndex < questionsList.length - 1) {
+            currentQuestionIndex++;
+            renderQuestion();
+        } else {
+            await submeterDiagnosticoCompleto();
+        }
+    });
+
+    // 6. Envio Assíncrono das Respostas
+    async function submeterDiagnosticoCompleto() {
+    nextBtn.disabled = true;
+    nextBtnText.textContent = "Processando Perfil...";
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/diagnostic/submit`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user_id: parseInt(userId),
+                answers: userAnswers.reduce((acc, curr) => {
+                    acc[String(curr.question_id)] = curr.selected_option;
+                    return acc;
+                }, {})
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Não foi possível computar seu nível conceitual no servidor.');
+        }
+
+        // SALVA O RETORNO DA API AQUI:
+        const result = await response.json();
+        sessionStorage.setItem('last_diagnostic_result', JSON.stringify(result));
+
+        progressBar.style.width = '100%';
+
+        // REDIRECIONA PARA A TELA DE RESULTADOS:
+        window.location.href = 'resultados_diagnostico.html';
+
+        } catch (error) {
+            alert(`Erro ao registrar respostas: ${error.message}`);
+            nextBtn.disabled = false;
+            nextBtnText.textContent = "Finalizar Evaluation";
+        }
+    }
+
+    // Inicialização segura controlando a sessão
+    window.addEventListener('DOMContentLoaded', () => {
+        if (!userId) {
+            window.location.href = 'login.html';
+            return;
+        }
+        carregarQuestoesDoBanco();
+    });
+</script>
+</body></html>

@@ -16,35 +16,53 @@ class DiagnosticService:
     @staticmethod
     def obter_questoes_diagnostico():
         """
-        Retorna as questões do diagnóstico para renderização no Frontend.
-        OCULTA a coluna 'resposta_correta' por segurança contra trapaças.
+        Retorna todas as questões da tabela 'questoes_diagnostico' ordenadas.
         """
-        conn = DiagnosticService.get_connection()
+        conn = ProficiencyService.get_connection()
         cursor = conn.cursor()
-
+        
         cursor.execute("""
-            SELECT id, ordem, conceito_id, enunciado, alternativa_a, alternativa_b, alternativa_c, alternativa_d, dificuldade
-            FROM questoes_diagnostico
+            SELECT id, ordem, conceito_id, enunciado, 
+                   alternativa_a, alternativa_b, alternativa_c, alternativa_d,
+                   dificuldade
+            FROM questoes_diagnostico 
             ORDER BY ordem ASC
         """)
-
-        questions = [dict(row) for row in cursor.fetchall()]
+        
+        rows = cursor.fetchall()
         conn.close()
-        return questions
-
+        
+        questoes = []
+        for row in rows:
+            questoes.append({
+                "id": row["id"],
+                "ordem": row["ordem"],
+                "conceito_id": row["conceito_id"],
+                "enunciado": row["enunciado"],
+                "alternativas": {
+                    "A": row["alternativa_a"],
+                    "B": row["alternativa_b"],
+                    "C": row["alternativa_c"],
+                    "D": row["alternativa_d"]
+                },
+                "dificuldade": row["dificuldade"]
+            })
+            
+        return questoes
+    
     @staticmethod
     def processar_respostas_diagnostico(user_id: int, answers: dict):
         """
         Recebe as respostas do aluno no formato de dicionário:
         answers = { "1": "A", "2": "C", ... }
         
-        Calcula a proficiência inicial por conceito, salva automaticamente
-        na tabela 'proficiencia' e retorna o resultado.
+        Calcula a proficiência inicial por conceito de forma híbrida/multitópico,
+        salva na tabela 'proficiencia' e retorna o resultado.
         """
         conn = DiagnosticService.get_connection()
         cursor = conn.cursor()
 
-        # Puxa o gabarito completo (id, conceito e resposta certa) para validação interna no backend
+        # Puxa o gabarito estruturado
         cursor.execute("""
             SELECT id, conceito_id, resposta_correta 
             FROM questoes_diagnostico
@@ -52,30 +70,42 @@ class DiagnosticService:
         questions_gabarito = cursor.fetchall()
         conn.close()
 
-        concept_stats = {}
+        # MATRIZ DE CORRELAÇÃO: Mapeia cada Questão ID aos conceitos que ela impacta
+        # Formato: question_id: [lista_de_conceito_ids_afetados]
+        MATRIZ_CONCEITOS = {
+            1: [1],        # Q1 (SELECT/WHERE) afeta Conceito 1
+            2: [1, 2],     # Q2 (BETWEEN/NULL) afeta Conceito 1 e 2
+            3: [1, 3, 4],  # Q3 (Agregação/Ordenação) afeta Conceito 1, 3 e 4
+            4: [1, 6],     # Q4 (INNER JOIN) afeta Conceito 1 e 6
+            5: [1, 3, 4, 5], # Q5 (HAVING) afeta Conceito 1 (SELECT), 3 (Agregação), 4 (GROUP BY) e 5 (HAVING)
+            6: [1, 6, 7],  # Q6 (LEFT JOIN) afeta Conceito 1, 6 e 7
+            7: [1, 8],     # Q7 (Subqueries) afeta Conceito 1 e 8
+            8: [1, 2]      # Q8 (DISTINCT/LIMIT) afeta Conceito 1 e 2
+        }
 
-        # Usa a sua lógica fantástica de mapeamento dinâmico
+        # Inicializa os contadores para TODOS os 8 conceitos do sistema
+        concept_stats = {i: {"correct": 0, "total": 0} for i in range(1, 9)}
+
         for question in questions_gabarito:
             question_id = question["id"]
-            concept_id = question["conceito_id"]
             correct_answer = question["resposta_correta"]
 
-            if concept_id not in concept_stats:
-                concept_stats[concept_id] = {
-                    "correct": 0,
-                    "total": 0
-                }
+            # Descobre quais conceitos essa questão avalia (usa o da matriz, ou o ID padrão se não mapeado)
+            conceitos_afetados = MATRIZ_CONCEITOS.get(question_id, [question["conceito_id"]])
 
-            concept_stats[concept_id]["total"] += 1
-
-            # Sua lógica flexível de captura de respostas (String ou Int)
+            # Captura a resposta enviada pelo front-end
             student_answer = answers.get(str(question_id)) or answers.get(question_id)
 
             if student_answer is not None:
-                if student_answer.strip().upper() == correct_answer.strip().upper():
-                    concept_stats[concept_id]["correct"] += 1
+                is_correct = student_answer.strip().upper() == correct_answer.strip().upper()
+                
+                # Distribui o peso da questão para todos os conceitos envolvidos nela!
+                for c_id in conceitos_afetados:
+                    concept_stats[c_id]["total"] += 1
+                    if is_correct:
+                        concept_stats[c_id]["correct"] += 1
 
-        # Calcula a proficiência final de 0 a 100 por conceito
+        # Calcula a proficiência final de 0 a 100 por conceito de forma ponderada
         proficiency = {}
         for concept_id, stats in concept_stats.items():
             total = stats["total"]
@@ -86,11 +116,11 @@ class DiagnosticService:
             score = (stats["correct"] / total) * 100
             proficiency[concept_id] = round(score, 2)
 
-        # Invoca o seu ProficiencyService para salvar os dados na tabela 'proficiencia'
+        # Invoca o seu salvamento que já funciona perfeitamente!
         ProficiencyService.save_initial_proficiency(user_id, proficiency)
 
         return {
             "status": "success",
-            "message": "Diagnóstico processado com sucesso!",
+            "message": "Diagnóstico multitópico processado com sucesso!",
             "proficiencia_calculada": proficiency
         }

@@ -264,7 +264,7 @@ if __name__ == "__main__":
 
     }
 
-    user_id = 1
+    user_id = 0
 
     ProficiencyService.save_initial_proficiency(
         user_id,
