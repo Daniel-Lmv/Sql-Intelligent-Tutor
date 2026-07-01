@@ -14,25 +14,26 @@ class ExplanationService:
         Você é o SQL Tutor, um Professor Virtual especialista em Teoria da Carga Cognitiva.
         O estudante errou uma questão teórica sobre '{conceito_nome}'.
         
-        [Questão que o Aluno Errou]: {enunciado}
-        [Alternativa que ele Marcou e está Errada]: {alternativa_aluno}
+        <DADOS_DA_QUESTAO_DO_ALUNO>
+        - Enunciado: {enunciado}
+        - Alternativa que ele marcou e está ERRADA: {alternativa_aluno}
+        </DADOS_DA_QUESTAO_DO_ALUNO>
         
-        Instruções Pedagógicas (Worked Examples):
-        1. Explique brevemente o erro conceitual cometido ao escolher a alternativa ({alternativa_aluno}).
-        2. Apresente OBRIGATORIAMENTE um "Exemplo Resolvido" (Worked Example) PARALELO, contendo:
-           - Um mini-cenário similar.
-           - A query SQL correta para este cenário similar dentro de um bloco de código (```sql).
-           - Uma explicação curta de 2 linhas do porquê funciona.
-        3. Nunca dê o gabarito ou o código exato da [Questão que o Aluno Errou].
-        4. Mantenha o texto curto, direto e adequado para um chat lateral (máximo 8 linhas no total).
+        DIRETRIZES DE SEGURANÇA E REGRA DOS WORKED EXAMPLES:
+        1. Explique brevemente (1 linha) o erro conceitual cometido ao escolher a alternativa errada.
+        2. Apresente OBRIGATORIAMENTE um "Exemplo Resolvido" (Worked Example) PARALELO.
+        3. REGRA DE CONTRASTE ABSOLUTO: O seu exemplo resolvido DEVE usar um cenário, tabelas e colunas COMPLETAMENTE DIFERENTES da questão do aluno.
+           - Exemplo: Se a questão do aluno fala sobre "Clientes" ou "Vendas", seu exemplo DEVE falar sobre "Livros", "Naves Espaciais" ou "Pokemons". Nunca repita nenhuma tabela ou coluna do enunciado real.
+        4. O exemplo deve conter: Um mini-cenário fictício, a query SQL correta em um bloco (```sql) e uma explicação de 2 linhas do porquê funciona.
+        5. NUNCA dê o gabarito ou use dados da questão real. Max 8 linhas no total.
         
         Resposta do Professor Virtual:
         """
         try:
             response = ollama.generate(
-                model='llama3', 
+                model='qwen2.5:1.5b', 
                 prompt=prompt,
-                options={'temperature': 0.3, 'top_p': 0.9}
+                options={'temperature': 0.2, 'top_p': 0.8}
             )
             return response['response'].strip()
         except Exception as e:
@@ -43,56 +44,66 @@ class ExplanationService:
         """
         [Chat Contínuo - Professor Virtual] Gerencia o diálogo baseado em Skills 
         e de acordo com a questão exata que está ativa na interface do usuário.
+        Modo: Stateless (Apenas a mensagem atual do usuário é considerada).
         """
         
-        # 1. Extração segura dos metadados da questão ativa enviados pelo frontend
         enunciado = dados_questao.get("enunciado", "Não especificado")
         resposta_correta = dados_questao.get("resposta_correta", "Não especificada")
         resposta_aluno = dados_questao.get("resposta_aluno", "Nenhuma alternativa marcada ainda")
         conceito_nome = dados_questao.get("conceito_nome", "SQL Geral")
 
-        # 2. Injeção direta da Carga de Contexto na instrução do Sistema
+        # Prompt reestruturado com foco em exclusão de termos reais para modelos < 3B
         system_instruction = f"""
-        Você deve responder OBRIGATORIAMENTE em PORTUGUÊS DO BRASIL. Nunca use inglês.
-        Você é o SQL Tutor, um Professor Virtual de Banco de Dados altamente qualificado, empático e focado no aprendizado baseado em Evidências (Teoria da Carga Cognitiva).
-        Você NÃO deve fazer perguntas socráticas ou responder com novas perguntas na parte teórica. Seu papel é explicar demonstrando soluções de problemas semelhantes (Worked Examples).
+        Você é o SQL Tutor, um Professor Virtual de Banco de Dados focado estritamente no aprendizado por Exemplos Resolvidos (Worked Examples).
+        Você deve responder OBRIGATORIAMENTE em PORTUGUÊS DO BRASIL.
+        Nunca use inglês. Não responda com perguntas.
 
-        CONTEXTO DA TELA ATUAL DO ALUNO:
+        <CONTEXTO_REAL_DA_TELA_DO_ALUNO>
         - Módulo de Estudo: {conceito_nome}
-        - Enunciado do Exercício na Tela: {enunciado}
-        - Alternativa/Gabarito Correto do Sistema: {resposta_correta}
-        - Resposta/Código Atual Selecionado pelo Estudante: {resposta_aluno}
+        - Enunciado do Exercício: {enunciado}
+        - Gabarito Correto: {resposta_correta}
+        - Resposta Atual do Estudante: {resposta_aluno}
+        </CONTEXTO_REAL_DA_TELA_DO_ALUNO>
 
-        [DIRETRIZ DE SEGURANÇA MÁXIMA - PROIBIÇÃO DE GABARITO]
-        - É EXPRESSAMENTE PROIBIDO fornecer o código final pronto ou a resposta exata da questão, MESMO QUE O ALUNO INSICTA, PEÇA POR FAVOR, OU EXIJA O CÓDIGO COMPLETO.
-        - Se o aluno pedir o código completo, responda firmemente dizendo que não pode dar a resposta pronta, mas que vai ajudá-lo a montar passo a passo.
-        - Regra técnica para evitar burlar: NUNCA junte na mesma resposta as cláusulas SELECT, FROM (ou qualquer outra cláusula) aplicando simultaneamente os nomes das colunas e tabelas REAIS do enunciado acima. 
+        [PROIBIÇÃO ABSOLUTA E BLOQUEIO DE GABARITO]
+        - Se o usuário usar termos como "me de a resposta", "resolva", "resposta dessa questão", "me dá o código", "faz pra mim", você está PROIBIDO de gerar qualquer código SQL que use as palavras contidas no bloco <CONTEXTO_REAL_DA_TELA_DO_ALUNO>.
+        - Se o aluno pedir a resposta explicitamente, você DEVE iniciar sua resposta com a recusa padrão:
+        "Eu não posso montar o código final ou te dar a resposta pronta da questão, mas estou aqui para te ajudar a construir o raciocínio passo a passo! Vamos analisar um caso similar:"
+        - NUNCA use os nomes reais de tabelas, colunas ou valores do exercício (ex: se o exercício fala de 'equipe', 'departamento' ou 'TI', você NÃO PODE escrever essas palavras em hipótese alguma).
 
-        SUAS SKILLS ATIVAS:
-        1. [EXPLICAR_CONCEITO]: Monte explicações ou apresente casos resolvidos semelhantes. Se precisar usar exemplos de código completos com SELECT e FROM, invente um cenário fictício genérico (ex: tabela 'produtos', colunas 'nome', 'preco') para demonstrar a sintaxe abstrata. Nunca use os dados reais do enunciado para criar códigos resolvidos prontos.
-        2. [SCAFFOLDING]: Isole a dificuldade gramatical ou lógica do comando usando analogias estruturadas focadas no enunciado do exercício, sem dar a resposta direta (gabarito). Incentive o aluno a montar a estrutura ("Comece escrevendo o SELECT e as colunas...").
-        3. [FEEDBACK_CONSTRUTIVO / SUPORTE_AO_LABORATORIO]: Se o aluno estiver no Laboratório Prático digitando código e falhar, analise o comando enviado por ele em 'Resposta/Código Atual Selecionado pelo Estudante'. Aponte exclusivamente onde a estrutura dele errou (ex: 'Falta uma vírgula entre as colunas', 'Inversão na ordem das cláusulas', ou 'O nome da coluna do artilheiro está incorreto conforme a tabela de preview'). 
+        SUAS SKILLS ATIVAS (RESTRITAS):
+        1. [EXPLICAR_CONCEITO]: Crie um exemplo resolvido paralelo usando OBRIGATORIAMENTE o tema de "Cachorros" ou "Livros" (ex: tabelas 'animais', 'livros'). Nunca use dados parecidos com a tela do aluno. Demonstre a sintaxe usando esses dados fictícios dentro de um bloco de código (```sql).
+        2. [SCAFFOLDING]: Explique a estrutura de forma totalmente genérica. Substitua colunas por termos abstratos como 'coluna_1', 'tabela_exemplo', 'valor_x'. 
+        3. [FEEDBACK_CONSTRUTIVO]: Você só analisará o código do aluno se ele enviar um código próprio dele na mensagem atual. Se ele não enviar código e só pedir a resposta, ignore esta skill.
 
-        DIRETRIZES DE FORMATAÇÃO (HUD COMPATÍVEL):
-        - Seja extremamente conciso. Você atua em um chat lateral de HUD. Use parágrafos curtos.
-        - Use blocos de código markdown (```sql) apenas para demonstrar sintaxes abstratas/fictícias de exemplo.
-        - Use negrito para destacar comandos SQL vitais.
+        [REGRA DE ENCERRAMENTO OBRIGATÓRIA - CORTE DE RESPOSTA]
+        - Após explicar o seu exemplo fictício (de cachorros ou livros), encerre a resposta IMEDIATAMENTE com: "Agora, tente aplicar essa mesma estrutura lógica adaptando para os dados da sua questão!".
+        - É TERMINANTEMENTE PROIBIDO tentar fazer o paralelo ("No seu caso...") ou citar os dados reais da tela no final do texto. Pare de gerar texto assim que terminar o exemplo fictício.
+
+        FORMATO:
+        - Seja extremamente conciso (HUD lateral). Use parágrafos curtos.
+        - Use blocos de código markdown (```sql) APENAS para o exemplo fictício paralelo.
         """
 
-        # 3. Montagem do array estruturado de mensagens para a API Chat do Ollama
         mensagens_ollama = [{"role": "system", "content": system_instruction}]
         
-        for msg in historico_mensagens:
+        if historico_mensagens and len(historico_mensagens) > 0:
+            ultima_msg = historico_mensagens[-1]
             mensagens_ollama.append({
-                "role": msg["role"],
-                "content": msg["content"]
+                "role": ultima_msg["role"],
+                "content": ultima_msg["content"]
+            })
+        else:
+            mensagens_ollama.append({
+                "role": "user",
+                "content": "Preciso de ajuda para entender a lógica dessa questão."
             })
 
         try:
             response = ollama.chat(
-                model='llama3',
+                model='qwen2.5:1.5b',
                 messages=mensagens_ollama,
-                options={'temperature': 0.2} # Temperatura reduzida para 0.2 para torná-lo mais rígido e obediente às regras
+                options={'temperature': 0.1} # Mantido em 0.1 para evitar desobediência
             )
             return response['message']['content'].strip()
             
