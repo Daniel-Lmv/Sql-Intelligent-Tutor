@@ -1,46 +1,219 @@
-# ITS SQL - Sistema Tutor Inteligente para Ensino de SQL
+# 🧠 SQL Intelligent Tutor
 
-## Descrição
+[![Python](https://img.shields.io/badge/Python-3.11-blue.svg)]()
+[![FastAPI](https://img.shields.io/badge/FastAPI-REST_API-green.svg)]()
+[![SQLite](https://img.shields.io/badge/SQLite-Database-blue.svg)]()
+[![LLM](https://img.shields.io/badge/LLM-AI_Tutor-orange.svg)]()
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)]()
 
-Este projeto consiste no desenvolvimento de um Sistema Tutor Inteligente (ITS) voltado para o ensino de SQL. O sistema busca acompanhar o desempenho do estudante, identificar dificuldades em conceitos específicos e recomendar atividades adequadas ao seu nível de conhecimento.
+An Intelligent Tutoring System (ITS) designed to teach SQL through adaptive learning, personalized assessments, and AI-assisted tutoring.
 
-O domínio abordado pelo tutor contempla os principais conceitos de SQL:
+The platform combines diagnostic evaluation, theoretical lessons, practical SQL laboratories, and Large Language Models (LLMs) to create a personalized learning experience.
 
-* SELECT
-* WHERE
-* ORDER BY
-* Funções de Agregação
-* GROUP BY
-* HAVING
-* JOINS
-* SUBQUERIES
+## 📖 Overview
 
-O sistema utiliza um modelo de proficiência para acompanhar a evolução do aluno e um conjunto de exercícios práticos para avaliar seu conhecimento.
+SQL AI Tutor is an Intelligent Tutoring System developed to support SQL education through adaptive learning techniques.
 
----
+Unlike traditional learning platforms, the system first evaluates the student's knowledge using a diagnostic assessment and then recommends personalized learning paths.
 
-## Objetivo Pedagógico
+Students can interact with an AI Tutor, practice SQL queries using a real database, and monitor their learning progress throughout the course.
 
-O sistema busca:
+## ✨ Features
 
-1. Avaliar o conhecimento inicial do aluno por meio de um teste diagnóstico.
-2. Manter um modelo de proficiência para cada conceito de SQL.
-3. Atualizar o progresso do aluno conforme suas respostas.
-4. Recomendar exercícios adequados ao nível de conhecimento identificado.
-5. Auxiliar o estudante no aprendizado gradual dos conceitos de SQL.
+- Adaptive Diagnostic Assessment
+- Personalized Learning Paths
+- AI-powered SQL Tutor
+- Interactive SQL Laboratory
+- Automatic Answer Validation
+- Student Progress Tracking
+- REST API with FastAPI
+- SQLite Database
+- Modular Architecture
 
----
+## 📸 Screenshots
 
-## Autores
+### Login
 
-Projeto desenvolvido para a disciplina de Sistemas Tutores Inteligentes.
+<p align="center">
+<img src="assets/login.png" width="100%">
+</p>
 
-Integrantes do grupo:
+### Dashboard
 
-* Daniel Limaverde
-* Matheus Rodrigues
-* José Victor
-* Marcelo José
+<p align="center">
+<img src="assets/dashboard.png" width="100%">
+</p>
 
+### Diagnostic Assessment
+
+<p align="center">
+<img src="assets/diagnostic.png" width="100%">
+</p>
+
+### Diagnostic Questions
+
+<p align="center">
+<img src="assets/diagnostic_questions.png" width="100%">
+</p>
+
+### Diagnostic Results
+
+<p align="center">
+<img src="assets/diagnostic_results.png" width="100%">
+</p>
+
+### AI Tutor
+
+<p align="center">
+<img src="assets/tutor.png" width="100%">
+</p>
+
+### SQL Laboratory
+
+<p align="center">
+<img src="assets/laboratory.png" width="100%">
+</p>
+
+## 🏗 System Architecture
+
+<p align="center">
+<img src="assets/architecture.svg" width="100%">
+</p>
+
+The application follows a modular client-server architecture composed of:
+
+- Web Frontend
+- FastAPI Backend
+- AI Tutor Service
+- SQLite Database
+- SQL Learning Modules
+
+## 📚 Learning Workflow
+
+<p align="center">
+<img src="assets/workflow.svg" width="900">
+</p>
+
+The learning process follows these steps:
+
+1. Student authentication
+2. Diagnostic assessment
+3. Knowledge estimation
+4. Personalized lesson recommendation
+5. AI-assisted tutoring
+6. SQL laboratory practice
+7. Progress update
+
+## 🗄 Database Architecture
+
+<p align="center">
+<img src="assets/database_architecture.svg" width="900">
+</p>
+
+The database stores:
+
+- Users
+- SQL concepts
+- Diagnostic questions
+- Learning questions
+- Laboratory exercises
+- Student proficiency
+- Student answers
+- FIFA World Cup dataset
+
+## 🛠 Tech Stack
+
+### Backend
+
+- Python
+- FastAPI
+- SQLite
+
+### Frontend
+
+- HTML
+- CSS
+- JavaScript
+
+### Artificial Intelligence
+
+- Large Language Models (LLMs)
+- Prompt Engineering
+
+### Development
+
+- Git
+- VS Code
+
+## 📁 Project Structure
+
+```text
+sql-ai-tutor/
+
+├── assets/
+├── backend/
+├── frontend/
+├── docs/
+├── README.md
+├── requirements.txt
+└── LICENSE
 ```
+
+## 🚀 Installation
+
+Clone the repository.
+
+```bash
+git clone https://github.com/Daniel-Lmv/sql-ai-tutor.git
 ```
+
+Install the dependencies.
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the FastAPI backend.
+
+```bash
+uvicorn backend.main:app --reload
+```
+
+Open the frontend in your browser.
+
+## 📖 Documentation
+
+Detailed documentation is available inside the `docs` folder.
+
+- Architecture
+- Database Design
+- REST API
+
+## 🔬 Future Improvements
+
+- Docker deployment
+- PostgreSQL support
+- RAG-based tutoring
+- Conversation memory
+- Instructor dashboard
+- Learning Analytics Dashboard
+- Multi-course support
+- Automatic exercise generation
+
+## 👨‍💻 Author
+
+**Daniel Limaverde da Silva**
+
+Artificial Intelligence Student
+
+Federal University of Rio Grande do Norte (UFRN)
+
+GitHub: https://github.com/Daniel-Lmv
+
+LinkedIn: www.linkedin.com/in/daniel-limaverde
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a star.
+
+Contributions and suggestions are welcome.
