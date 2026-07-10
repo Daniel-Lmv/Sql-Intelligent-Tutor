@@ -50,5 +50,5 @@ Uses a Large Language Model to:
 ## Architecture Diagram
 
 <p align="center">
-  <img src="assets/architecture.svg" width="100%">
+  <img src="/assets/architecture.svg" width="100%">
 </p>
