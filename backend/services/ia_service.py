@@ -31,7 +31,7 @@ class ExplanationService:
         """
         try:
             response = ollama.generate(
-                model='qwen2.5:1.5b', 
+                model='llama3:8b', 
                 prompt=prompt,
                 options={'temperature': 0.2, 'top_p': 0.8}
             )
@@ -101,7 +101,7 @@ class ExplanationService:
 
         try:
             response = ollama.chat(
-                model='qwen2.5:1.5b',
+                model='llama3:8b',
                 messages=mensagens_ollama,
                 options={'temperature': 0.1} # Mantido em 0.1 para evitar desobediência
             )
