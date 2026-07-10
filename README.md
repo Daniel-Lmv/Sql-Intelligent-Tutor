@@ -12,7 +12,7 @@ The platform combines diagnostic evaluation, theoretical lessons, practical SQL 
 
 ## 📖 Overview
 
-SQL AI Tutor is an Intelligent Tutoring System developed to support SQL education through adaptive learning techniques.
+SQL Intelligent Tutor is an Intelligent Tutoring System developed to support SQL education through adaptive learning techniques.
 
 Unlike traditional learning platforms, the system first evaluates the student's knowledge using a diagnostic assessment and then recommends personalized learning paths.
 
