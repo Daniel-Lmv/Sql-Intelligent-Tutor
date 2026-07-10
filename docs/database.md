@@ -168,7 +168,7 @@ Example attributes include:
 # Entity Relationships
 
 <p align="center">
-  <img src="assets/database_architecture.svg" width="100%">
+  <img src="/assets/database_architecture.svg" width="100%">
 </p>
 
 ---
