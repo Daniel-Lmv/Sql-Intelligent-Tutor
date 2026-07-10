@@ -137,8 +137,10 @@ The database stores:
 
 ### Artificial Intelligence
 
-- Large Language Models (LLMs)
+- Meta Llama 3 8B
+- Ollama
 - Prompt Engineering
+- Context-aware Prompt Construction
 
 The tutoring module integrates a Large Language Model (LLM) to provide contextual explanations during SQL learning.
 
